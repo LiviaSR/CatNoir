@@ -1,0 +1,306 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <title>DoNeutS</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="../css/jquery.dataTables.min.css" rel="stylesheet">
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.12.1/sorting/numString.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../js/pulsar_data.js"></script>
+    <script src="../js/index.js"></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="toast">
+        <div class="toast-body">CODED WITH ❤️ BY 🍋 @ 2022</div>
+    </div>
+    <div class="main-header row container-shadow">
+        <div class="col-3 max-planck-logo">
+            <img src="../images/mpg_logo.png" class="d-block" alt="...">
+        </div>
+        <div class="col-6 text-center">
+            <h2 onclick="easterEgg()" class="title" style="user-select: none;">DoNeutS:</h2>
+            <h3 class="title" style="user-select: none;">A Double Neutron Star Catalogue</h3>
+        </div>
+        <div class="col-3 max-planck-logo">
+            <img src="../images/mpifr.png" class="d-block" alt="...">
+        </div>
+    </div>
+    <div class="container">
+        <hr class="line-break-down" size="1" color="black">
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span> Menu
+                </button>
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="./mass_meas.html" class="nav-link">Mass Measurements</a></li>
+                        <li class="nav-item"><a href="./geod.html" class="nav-link">Geodetic precession</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="gws" class="page-section">
+        <h5>Gravitational waves</h5>
+    </div>
+    <div class="container">
+        <hr class="line-break-up" size="1" color="black">
+    </div>
+    <div class="carousel-container container-shadow">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade container-shadow" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1">
+                </button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2">
+                </button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3">
+                </button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4">
+                </button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../images/ligo-hanford.jpeg" class="d-block" alt="LIGO Hanford Observatory">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>LIGO Hanford Observatory</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/ligo-livingston.jpeg" class="d-block" alt="LIGO Livingston Observatory">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>LIGO Livingston Observatory</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/virgo.jpg" class="d-block" alt="LIGO Livingston Observatory">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Virgo Observatory</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../images/kagra-ogp.jpg" class="d-block" alt="KAGRA Observatory">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Arm of KAGRA Observatory</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <hr class="line-break-down" size="1" color="black">
+    </div>
+    <div class="text-section" style="text-align: justify;">
+    <p>
+        Gravitational wave (GW) emissions are ripples in the spacetime manifold caused by the movement of massive objects,
+        and were predicted by Einstein's theory of General Relativity (GR). The most intense sources of GW emissions
+        are the merger of compact objects like neutron stars and black holes, realeasing a great amount of energy.
+        These components lose energy while orbiting each other, and as a consequence they spiral-in reducing the orbital
+        period with time. The discovery of PSR B1913+16 (<a href="http://https://ui.adsabs.harvard.edu/abs/1975ApJ...195L..51H/abstract" target="_blank">Hulse & Taylor, 1975</a>)
+        provided the first evidence for the existence of this effect,
+        by the observation of orbital decay during time, \( \dot{P}_b \) (<a href="http://ui.adsabs.harvard.edu/abs/1982ApJ...253..908T/abstract" target="_blank">Taylor & Weisberg, 1982</a> ). 
+        This discovery triggered a great interest in the scientific community and placed DNSs as the main target for groundbased interferometric detectors.
+    </p>
+    <p>
+        Since the produced signals are very weak, detection of GW emssions was a challenging task for decades. The <a href="https://www.ligo.caltech.edu/" target="_blank"><em>Laser Interferometer
+        Gravitationl-Wave Observatory</em></a> (LIGO) was founded in 1992 by Kip Thorne and Ronald Drever from Caltech and Rainer Weiss from the MIT
+        (<a href="https://iopscience.iop.org/article/10.1088/0034-4885/72/7/076901/meta?casa_token=MeJrioBu878AAAAA:iyUIAmVzYMKYfPxSj0fQQ7AHpm69fhuzWlI3BWewXAK0rHeo9-glKvjBUbMtm7PDQfKfR87RpZ8" target="_blank">Abbott et al., 2009</a>).
+        LIGO consists of two identical interferometers separeted by 3002 kilometers, located in fairly isolated areas of Washington (LIGO Hanford)
+        and Lousiana (LIGO Livingston). The reason behind this large distance is found in their sensitivities. Since these instruments are very sensitive,
+        they can detect the tiniest vibrations on Earth, from sources that are nearby until those which are thousands of kilometers away, and this can mask the GW
+        signal in each detector. Locating the interferometers far away, it is possible to distinguish between GW signals and local noise. The original instruments were
+        operational from 2002 to 2010, but no detection was made at that time. During these years the team made huge progress in detector engineering and both interferometers were
+        redesigned from 2010 to 2014. 
+    </p>
+    <p>
+        LIGO's interferometers are, in a sense, similar to Michelson interferometers, invented in the 1880's to (un)probe the existence
+        of ether through the detection of interference patterns, with an ideal configuration to precisely measure phase changes of a wave traveling along
+        two perpendicular arms with an "L-shape", since GW's cause the manifold to stretch in one direction and compress in a perpendicular direction. The layout is shown in the figure below.
+        In summary, a powerful laser beam is equally splitted and directed towards both arms, bouncing off mirrors at the end of each arm. An additional mirror is placed in each arm, near the beam
+        splitter and 4 km away from the end mirror, to create a <i>Fabry Perot cavity</i>. This causes the laser to bounce between the two mirrors about 300 times before being recombined.
+        When gravitational waves pass through, an interference pattern is observed in the recombined signal. The recombined laser beams are directed towards photodetectors that measure this interference
+        pattern created by the supperpositon of the two beams. By analyzing the interference it is possible to determine the characteristics of the GW and gain insights into the astrophysical events that produced them.
+    </p>
+    <figure>
+        <img src="../images/LIGO.png" alt="Simplified design of LIGO"
+            style="height: auto; max-width: 50%; padding: 10px; margin: auto; display: block;">
+        <figcaption>A simplified design of the Advanced LIGO and Virgo detectors. Figur extracted from <a href="https://simple.wikipedia.org/wiki/LIGO" target="_blank">Wikipedia</a>. </figcaption>
+    </figure>
+    <p>
+        The <a href="https://www.virgo-gw.eu/" target="_blank">Virgo interferometer</a>, with a 3 km arms and built outside of Pisa in Italy, joined the observations of LIGO in 2017, after a period improving
+        its sensitivity (<a href="https://iopscience.iop.org/article/10.1088/1748-0221/7/03/P03012/meta?casa_token=kUUviMjROP0AAAAA:7JfbcCOFqCr3V4eSkMKMZDV7oVC2tF7bgwhmthD-WbWyPEHd5sMH5QjowH2MReet8xNEbUvwh2rn4WcRZOuSsknVUaRs" target="_blank">Accadia et al., 2012</a>). Its operation, combined with both LIGO detectors is crucial to localize the GW sources in the sky, since the localization
+        is determined from the time delay between different observatories. More recently, the <a href="https://gwcenter.icrr.u-tokyo.ac.jp/en/" target="_blank">KAGRA observatory</a> also started operating (<a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.88.043007" target="_blank">Aso et al., 2013</a>). It is constructed in Japan, inside
+        the Kamioka mine, where is also located the neutrino detector Super Kamiokande. The underground location and use of cryogenic systems took this detector to another level,
+        minimizing seismic and molecular vibrations that can mask the GW signal. 
+    </p>
+    <p>
+        The first detection of a gravitational wave occurred in 2015 from a binary black hole merger, GW150914
+        (<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.116.061102" target="_blank">Abbott, B. P. et al, 2016</a> ), by the Advanced LIGO detectors. 
+        However, the true era of multimessenger and multiwavelength astronomy started two years latter with the first detection of the compact binary merger GW170817
+        (<a href="https://ui.adsabs.harvard.edu/abs/2017PhRvL.119p1101A/abstract" target="_blank">Abbott, B. P. et al, 2017</a> ), quickly associated with a short 
+        <i>gamma-ray burst</i> (GRB) emitted from the same sky location, \(1.7~s\) after the
+        merger (<a href="https://ui.adsabs.harvard.edu/abs/2017ApJ...848L..14G/abstract" target="_blank">Goldstein et al., 2017</a> ).
+            The precise location of the event allowed a follow-up, leading to detections in X-ray,
+        ultraviolet, optical, infrared and radio bands. The optical counterpart, AT2017gfo (<a href="https://www.science.org/doi/abs/10.1126/science.aap9811" target="_blank">Coulter et al., 2017</a>),
+        placed NGC 4993 as the host galaxy with a Tully-Fisher distance of \( \sim40~Mpc \) (<a href="https://iopscience.iop.org/article/10.1086/320638/meta" target="_blank">Freedman et al., 2001</a> ), consistent
+        with the inferred GW luminosity distance. The association of the gravitational wave with the sGRB, as well as the
+        observations across the electromagnetic spectrum by different groups,
+        the total and component masses of the system and the offset related to the host galaxy center provided strong evidences for
+        the DNS nature of the GW170817 progenitor.
+    </p>
+        <figure>
+        <img src="../images/GW170817.png" alt="GW170817 signal" style="height: auto; max-width: 70%; padding: 10px; margin: auto; display: block; height: 400px;">
+        <figcaption>The chirp signal detected for GW170817 as a function of time, observed by the Advanced LIGO detectors. Figure extracted from <a href="https://ui.adsabs.harvard.edu/abs/2017PhRvL.119p1101A/abstract" target="_blank">Abbott, B. P. et al, 2017</a>.
+        </figcaption>
+        </figure>
+    <p>
+
+    </p>
+    <p>
+        In April 2019, the second gravitational wave signal consistent with the coalescence of a DNS was detected, GW190425
+        (<a href="https://ui.adsabs.harvard.edu/abs/2020ApJ...892L...3A/abstract" target="_blank">Abbott, B. P. et al., 2020</a> ). This event is identified as single-detector since at the time it was detected the
+        LIGO-LHO was offline and the signal-to-noise ratio of Virgo was 2.5, below the threshold of 4.0 for significance
+        estimation. The localization of a GW signal relies on measuring the time delay between observatories, but since GW190425
+        is a single-detector event, was not possible to set straight constraints on the sky map region. As a consequence, a
+        follow-up became challenging and until now there is now firm detection of an electromagnetic counterpart. Nonetheless,
+        it is important to note that the event itself is highly significant. While it is not possible to rule out the
+        possibility of one or both components being BH's, due to the absence of sensitivity to probe matter effects, this
+        hypothesis is unlikely. 
+    </p>
+    <h3 style="margin-top: 30px;"><em>Chirp Mass</em></h3>
+    <P>
+        Parameters that influences the evolution of waveform phase can be precisely constrained given the large number of cycles
+        in the observable waveform (<a href="https://ui.adsabs.harvard.edu/abs/1994PhRvD..49.2658C/abstract" target="_blank">Cutler & Flanagan, 1994</a> ). The same does not hold for parameters which affects only wave
+        polarization or amplitude. The best constrained quantity from a GW signal is the called <i>chirp mass</i>
+        (\(\mathcal{M} \)).
+    </P>
+    <P>
+        To lowest order, it is possible to describe the gravitational radiation from the quadrupole Newtonian formalism of two
+        dimensionless particles in an almost circular orbit (assuming that gravitational damping circularizes the orbit). The
+        angular orbital frequency is then given by:
+        \begin{equation}
+        \Omega_b^2 = \frac{GM_{tot}}{a^3},
+        \end{equation}
+        where \(G\) is the gravitational constant, \(M_{tot}\) is the system total mass and \(a\) is the orbital separation. The loss of
+        energy leads to a decrease in \(a\) and, consequently, a decrease in orbital period, since \(P_{b} \equiv 2\pi /\Omega_b\).
+        Combining the inspiral rate of system and the equation above, the signal frequency (\(\nu=1/P\)) is then obtained:
+        \begin{equation}
+        \nu^{-11/3} \frac{d\nu}{dt} = \frac{96}{5}\pi^{8/3}\mathcal{M}^{5/3}.
+        \end{equation}
+    </p>
+    <p>
+        Therefore, from the observed signal frequency and its derivative is possible to accurately measure the chirp mass, which
+        is a combination of total and reduced (\(\mu\)) masses of the system, \(\mathcal{M} = \mu^{3/5} M_{tot}^{2/5}\), and to determine the rate
+        at which the GW frequency changes over time. These
+        calculations are valid for the source-frame. When detected on Earth the signal is Doppler shifted due to relative
+        motion, so the detected value will be \(\mathcal{M}_{det} = (1 + z)\mathcal{M}\), where \(z\) is the redshift of the source.
+        All binaries with the same \(\mathcal{M}\) will have the same chirping sweep. Still, post-newtonian corrections to Eq. () do introduce a dependence
+        on the individual masses of the system. This quantity is inferred by a matched filtering technique, where the wave's phase evolution is matched with
+        model templates predicted under GR.
+    </P>
+    </div>
+
+    <button onclick="topFunction()" id="to-top-button" title="To top">Top</button>
+    <div class="footer mt-auto">
+        <footer class="py-3 mt-4">
+            <ul class="nav pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/references.html" class="nav-link">References</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/updates.html" class="nav-link">Updates</a>
+                </li>
+                <li class="nav-item">
+                    <a href="../html/contact.html" class="nav-link">About Us</a>
+                </li>
+            </ul>
+            <p class="text-muted"> &copy; 2023, DoNeutS</p>
+        </footer>
+    </div>
+
+    <button onclick="toggleTheme()" id="toggle-theme-button"></button>
+
+</body>
+
+<script src="../js/theme.js"></script>
+
+
+<script src="../js/navbar.js"></script>
+<script>eval(mod_pagespeed_pjbkxWKFfo);</script>
+<script>eval(mod_pagespeed_6H5NR84qUD);</script>
+
+<script>
+    // Get the button
+    let mybutton = document.getElementById('to-top-button');
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script>
+    let counter = 0;
+    function easterEgg() {
+        console.log(counter);
+        if (counter == 5) {
+            $('.toast').toast('show');
+            setTimeout(() => {
+                $('.toast').toast('hide');
+            }, 10000);
+            counter = 0;
+            return;
+        }
+        counter++;
+    }
+</script>
+
+</html>

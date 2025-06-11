@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./css/navbar.css">
+        <title>ChatNoir</title>
+        <link rel="stylesheet" href="./css/index.css" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link href="./css/jquery.dataTables.min.css" rel="stylesheet" ></style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="./js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/plug-ins/1.12.1/sorting/numString.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+        <script src="./js/pulsar_data.js"></script>
+        <script src="./js/index.js"></script>
+        <script src="./js/navbar.js"></script>
+        <!-- plots functions -->
+        <script src="./js/plot/plot_utils.js"></script>
+        <script src="./js/plot/transformations.js"></script>
+        <script src="./js/plot/axis_functions.js"></script>
+        <script src="./js/plot/ticks.js"></script>
+        <script src="./js/plot/colors.js"></script>
+        <script src="./js/plot/plot_config.js"></script>
+        <script src="./js/plot/build_plot_controls.js"></script>
+        <script src="./js/plot/plot.js"></script>
+    </head> 
+    <body>
+      <div class="toast">
+        <div class="toast-body">CODED WITH ❤️ BY 🍋 @ 2022</div>
+      </div>
+      <div class="main-header row container-shadow">
+        <div class="col-3 max-planck-logo">
+          <img src="images/IAG_logo.jpg" class="d-block" alt="...">
+        </div>
+        <div class="col-6 text-center">
+          <h2 onclick="easterEgg()" class="title" style="user-select: none;">ChatNoir:</h2>
+          <h3 class="title" style="user-select: none;">A Catalogue of Black Holes in the Galaxy</h3>
+        </div>
+        <div class="col-3 max-planck-logo">
+          <img src="images/figure_gardel.png" class="d-block" alt="...">
+        </div>
+      </div>
+      <div class="container">
+          <hr class="line-break-down" size="1" color="black">
+      </div>
+      <div class="container">
+          <nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span> Menu
+              </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#table" class="nav-link">Table</a></li>
+                <li class="nav-item"><a href="#plots" class="nav-link">Plots</a></li>
+                <li class="nav-item"><a href="#citation" class="nav-link">Cite</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Learn More</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown04">
+                    <a class="dropdown-item" href="html/mass_meas.html">Mass measurements</a>
+                    <a class="dropdown-item" href="html/geod.html">Geodetic precession</a>
+                    <a class="dropdown-item" href="html/gws.html">Gravitational Waves</a>
+                  </div>  
+                </li>
+                <li class="nav-item"><a href="html/contact.html" class="nav-link">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+<div class="container">
+  <hr class="line-break-up" size="1" color="black">
+</div>
+
+<div class="cover-container cover-shadow">
+  <div id="carouselExampleCaptions" class="carousel slide cover-fade cover-shadow" data-bs-ride="carousel">
+    
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/bh_xray.jpg" class="d-block w-100" alt="OGLE black hole">
+      </div>
+      <div class="carousel-item">
+        <img src="images/ogle_bh.jpg" class="d-block w-100" alt="Second slide">
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>
+
+<div class="container">
+  <hr class="line-break-down" size="1" color="black">
+</div>
+
+      <div id="about" class="page-section-lg">
+        <h5>About</h5>
+      </div>
+      <div class="text-section">
+        <p>
+          Black Holes are awesome!
+        </p>
+        <p>
+          The aim of <sup>&copy;</sup>ChatNoir project is to facilitate access 
+          to reliable information and provide the scientific community with a 
+          living catalog with the latest discoveries of galactic Black Holes. 
+        </p>
+        <p>If you found it useful do not forget to <a href="#citation">cite</a>. If you have suggestions for the project or found any error, do not hesitate in <a href="html/contact.html">contacting</a> us.</p>
+        <p style="text-align: center;">Enjoy!</p>
+      </div>
+      <div id="table" class="page-section">
+        <h5>Confirmed and candidate black holes</h5>
+      </div>
+      <div class="scroll-bar" style="width: 93%; margin: auto; overflow-x: auto">
+        <table id="DNS-catalogue" class="table table-striped table-bordered table-sm">
+          <thead>
+            <tr>
+              <th colspan="15" class="text-center">
+                <b>Properties of all DNS Systems with published data (Including unconfirmed candidates)</b> 
+              </th>
+            </tr>
+            <tr>
+              <th>PULSAR</th>
+              <th class="num" style="white-space: nowrap" >
+                <div data-toggle="tooltip" data-placement="right" title="Spin period">
+                  \(P \)<br>(\(s\))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Time decay of spin period. Not corrected for Shklovskii effect">
+                  <span>\( \dot{P} \)</span> <br>\(\times 10^{-18}~s~s^{-1}\)
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Orbital period">
+                  \( P_b \)<br>(days)
+                </div>
+                </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Eccentricity">
+                  \(e \) 
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Mass function ">
+                  \(f\)<br> \( (M_\odot) \)
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Binary total mass">
+                  \(M_T \)<br> \( (M_\odot) \)
+                </div>
+              </th>
+              <th class="no-sort" style="white-space: nowrap" >
+                <div data-toggle="tooltip" data-placement="right" title="Pulsar mass">
+                  \( M_p \) <br> \( (M_\odot) \) 
+                </div>
+              </th>
+              <th class="string-desc" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Companion mass">
+                  \(M_c \) <br> \( (M_\odot) \)
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Chirp mass. See the Gravitational Wave section for more info">
+                  \( \mathcal{M} \) <br> \( (M_\odot) \)
+                </div>
+              </th>
+              <th class="no-sort" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Misalignment angle. See the Geodetic precession section for more info">
+                  \( \delta \) <br> (\(deg\))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Dimensionless spin period at merger time">
+                  \( \chi_f \)
+                </div>
+              </th>
+              <th class="no-sort" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Effective spin parameter assuming the companion dimensionless spin is null">
+                  \( \chi_{eff} \)
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Characteristic age">
+                  \(\tau_c\)<br>(Gyr) 
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Time to merge">
+                  \(\tau_{gw}\)<br>(Gyr) 
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="DNS-catalogue-tbody">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="scroll-bar" style="width: 93%; margin: auto; overflow-x: auto; margin-top: 30px;">
+        <table id="DNS-kinematics" class="table table-striped table-bordered table-sm">
+          <thead >
+            <tr>
+              <th colspan="12" class="text-center">
+                <b>Kinematic properties of DNS Systems with measured proper motion</b> 
+              </th>
+            </tr>
+            <tr>
+              <th>PULSAR</th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Distance. Unless clearly stated, the value is the avarage between the NE2001 and YMW16 distances.">
+                \(d \)<br>(\(kpc\))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Galactic longitude">
+                <span>\( l \)</span> <br>(\(deg\))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Galactic latitude">
+                \( b \)<br>(\(deg\))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Distance from Galactic plane">
+                \(z \)<br>(\(kpc\))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Proper motion in l">
+                \( \mu_l \)<br> (\( mas~yr^{-1} \))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Proper motion in b">
+                \( \mu_b \)<br> (\( mas~yr^{-1} \))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Transversal velocity">
+                  \( v_T^{SSB} \)<br> (\( km~s^{-1} \))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="1 sigma interval of systematic velocity">
+                  \( v_{1\sigma}^{LCF} \)<br> (\( km~s^{-1} \))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Upper limity of systematic velocity with 90% confidence level">
+                  \( v_{< 90\%~CL}^{LCF} \)<br> (\( km~s^{-1} \))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Median value of kick velocity">
+                  \( \omega_{median} \)<br> (\( km~s^{-1} \))
+                </div>
+              </th>
+              <th class="num" style="white-space: nowrap">
+                <div data-toggle="tooltip" data-placement="right" title="Interval of kick velocity">
+                  \( \omega_{interval} \)<br> (\( km~s^{-1} \))
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="DNS-kinematics-tbody">
+          </tbody>
+        </table>
+      </div>
+      <div class="text-section">
+        <p>
+          To download the complete dataset please click <a href="./table.csv">here</a>.
+        </p>
+      </div>
+
+
+      <div id="plots" class="page-section">
+        <h5>Data visualization</h5>
+      </div>
+      <div style="width: 93%; margin: auto; margin-top: 3%;">
+        <div class="plot-container">
+          <div class="row justify-content-around">
+          <div class="col-8">
+            <div id="plot"></div>
+          </div>
+          <div class="col-4 plot-control-panel text text-center">
+              <div class="row">
+                <div class="col sources-title">
+                  <h4>Sources</h4>
+                </div>
+              </div>
+              <div class="rounded sources-control">
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="plot-control-sources" id="plot-control-sources-confirmed" value="confirmed" onclick="setConfirmed()" checked>
+                    <label class="form-check-label" style="margin-top: 0em !important" for="plot-control-sources-confirmed">
+                    <div data-toggle="tooltip" data-placement="right" title="Plot only systems with a confirmed NS companion">                     
+                      Confirmed
+                    </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="plot-control-sources" id="plot-control-sources-candidate" value="candidate"  onclick="setConfirmed()">
+                    <label class="form-check-label" style="margin-top: 0em !important" for="plot-control-sources-candidate">
+                    <div data-toggle="tooltip" data-placement="right" title="Plot all systems, including those where the companion is not confirmed as a NS">                  
+                      Candidate
+                    </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col horizontal-controls-title">
+                  <h4>Horizontal Axis</h4>
+                </div>
+              </div>
+              <div id="x-plot-control-anchor" class="rounded">
+              </div>
+              <div class="row">
+                <div class="col vertical-controls-title">
+                  <h4>Vertical Axis</h4>
+                </div>
+              </div>
+              <div id="y-plot-control-anchor" class="rounded">
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+      <div id="citation" class="page-section">
+        <h5>Export citation</h5>
+      </div>
+      <div class="container" style="margin-left: 3.5%; padding: 0%;"> 
+        <div class="row d-flex"> 
+          <div class="col-md-6"> 
+            <div class="p-3 px-4"> 
+            <div class="d-flex justify-content-between align-items-center mb-3"> 
+              <span id="ExportCite" class="about me-2" style="margin-right: 1cm; margin-top: 10px;">Rocha et al. (2025) in prep.</span> 
+              <button onclick="copy('Rocha et al. (2025) in prep.','#copy_button_1')" id="copy_button_1" class="btn btn-sm btn-success copy-button">
+                <i class="fa fa-copy"></i>
+              </button> 
+            </div> 
+            </div> 
+          </div> 
+        </div> 
+      </div>
+
+      <button onclick="topFunction()" id="to-top-button" title="To top">Top</button>
+      <button onclick="toggleTheme()" id="toggle-theme-button"></button>
+
+      
+
+
+      <div class="footer">
+        <footer class="py-3 mt-4">
+          <ul class="nav pb-3 mb-3">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="./html/references.html" class="nav-link">References</a>
+            </li>
+            <li class="nav-item">
+              <a href="./html/updates.html" class="nav-link">Updates</a>
+            </li>
+            <li class="nav-item">
+              <a href="./html/contact.html" class="nav-link">About Us</a>
+            </li>
+          </ul>
+          <p class="text-muted"> &copy; 2025, ChatNoir</p>
+        </footer>
+      </div>
+    </body>
+
+    <script>
+      enumarateReferences(pulsarData)
+    </script>
+
+    <script>
+      function copy(text, target) {
+        setTimeout(function() {
+          $('#copied_tip').remove();
+        }, 800);
+        $(target).append("<div class='tip' id='copied_tip'>Copied!</div>");
+        var input = document.createElement('input');
+          input.setAttribute('value', text);
+          document.body.appendChild(input);
+          input.select();
+        var result = document.execCommand('copy');
+          document.body.removeChild(input)
+          return result;
+      }
+    </script>
+
+     <!--
+      Nav bar
+     -->
+    <script>eval(mod_pagespeed_pjbkxWKFfo);</script>
+    <script>eval(mod_pagespeed_6H5NR84qUD);</script>
+
+    <script>
+      // Inlcude plot and controls
+      buildPlotControls('x');
+      buildPlotControls('y');
+      buildPlot();
+
+      window.addEventListener('resize', function(event) {
+        buildPlot();
+      });
+    </script>
+
+    <script>
+      // Build first table
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+      buildPulsarsTable();
+    </script>
+
+    <script>
+      // Build second table
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+      buildSecondTable();
+    </script>
+
+    <script>
+      // Sorting table columns
+      function parse(s) {
+        s = s.replace(/<div><\/div><span data-toggle="tooltip" data-placement="right">/, '');
+        s = s.replace(/<\/span>.*$/, '');
+
+        if (s[0] === 'J' || s[0] === 'B') {
+          return s.replace(/^[JB]+/, ''); // Sorting pulsar names only numerically
+        }
+
+        s = s.replace(/[ ]*/, ''); // Remove all spaces from string
+
+        if ( s === '-' ) { return -Infinity; }
+        if ( s === '∞') { return Infinity; }
+
+        s = s.replace(/\([0-9\.]*\)/, '');
+        s = s.replace(/\(\+[0-9\.]*\/-[0-9\.]*\)/, '');
+
+        return parseFloat(s);
+      }
+
+      jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+        "number-with-uncertainty-pre": function (s) {
+          return parse(s);
+        },
+        "number-with-uncertainty-asc": function (a, b) {
+          return ((a > b) ? 1 : 0);
+        },
+        "number-with-uncertainty-desc": function (a, b) {
+          return ((a < b) ? 1 : 0);
+        }
+      });
+
+      jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+        "mp-pre": function (s) {
+          return (( /^&lt;/.test(s) || /^\[/.test(s) ) ? '-' + s : '+' + s);
+        },
+        "mp-asc": function (a, b) {
+          return ((a > b) ? 1 : 0);
+        },
+        "mp-desc": function (a, b) {
+          return ((a < b) ? 1 : 0);
+        }
+      });
+      $(function() {
+        $('#DNS-catalogue').dataTable({
+          paging: false,
+          columnDefs: [
+            { type: 'number-with-uncertainty', targets: [0, 2, 6, 12] },
+            { type: 'mp', targets: 7 }
+          ]
+        });
+      });
+      $(function() {
+        $('#DNS-kinematics').dataTable({
+          paging: false,
+          columnDefs: [
+            { type: 'number-with-uncertainty', targets: [0, 1, 5, 6] },
+          ]
+        });
+      });
+    </script>
+
+    <script>
+      // Build "Top" button
+      // Get the button
+      let mybutton = document.getElementById('to-top-button');
+      
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+      
+    <script>
+      let counter = 0;
+      function easterEgg() {
+        
+        if ( counter == 5 ) {
+          $('.toast').toast('show');
+          setTimeout(() => {
+            $('.toast').toast('hide'); 
+          }, 10000);
+          counter = 0;
+          return;
+        }
+        counter++;
+      }
+    </script>
+
+    <script src="./js/theme.js"></script>
+
+</html>

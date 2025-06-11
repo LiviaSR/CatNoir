@@ -1,0 +1,620 @@
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: var(--bs-body-font-family) !important;
+    height: 100vh;
+
+}
+
+body {
+    background-color: var(--primary-color) !important;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-bottom: 0 !important;
+    color: var(--text-color) !important;
+}
+
+.text {
+    color: var(--text-color) !important;
+}
+
+.toast {
+    position: absolute; 
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 20px; 
+    z-index: 5;
+    width: fit-content !important;
+    text-align: center;
+}
+
+.toast-body {
+    background-color:rgba(0, 165, 41, 0.731) !important;
+    color: var(--text-color) !important;
+}
+
+.main-header {
+    background-color: var(--secondary-color);
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    --bs-gutter-x: 0rem !important; /* Fix right margin */
+} 
+
+.title {
+    color: var(--text-color) !important;
+    font-family: var(--bs-body-font-family) !important;
+}
+
+.max-planck-logo > img {
+    margin: auto;
+    width: 150px;
+    height: auto;
+   /* filter: var(--logo-filter) */
+}
+
+.line-break-down {
+    position: relative;
+    padding: 1px;
+    margin-top: -1px;
+    margin-bottom: 20px;
+    background-color: var(--highlight-color);
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 1;
+    border-radius: 10px;
+    border: 1px;
+    z-index: 2;
+    width: 60%;
+}
+
+.line-break-up {
+    position: relative;
+    padding: 1px;
+    margin-bottom: -1px;
+    background-color: var(--highlight-color);
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 1;
+    border-radius: 10px;
+    border: 1px;
+    z-index: 2;
+    width: 60%;
+}
+
+.ftco-navbar-light .navbar-nav >.nav-item >.nav-link:before {
+    background: var(--highlight-color);
+}
+
+.dropdown-menu {
+    border:rgba(0, 0, 0, 0.5);
+    background-color: var(--primary-color) !important;
+}
+
+.dropdown-item {
+    color:var(--text-color) !important;
+}
+
+.dropdown-item:hover {
+    background: var(--highlight-color) !important;
+    color:var(--text-color) !important;
+}
+
+.dropdown-item:visited  {
+    background: var(--secondary-color) !important;
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+
+.nav-link {
+    color: var(--text-color) !important;
+    font-size: 15px !important;
+}
+
+a {
+    color: var(--link-color) !important;
+}
+  
+a:hover {
+    color: var(--highlight-color) !important;
+}
+
+/* Cover image*/
+.cover-container {
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.cover {
+    margin: auto;
+    width: 93%;
+}
+
+.cover-inner {
+    max-height: 30%;
+}
+
+.cover-item > img {
+    width: 100%;
+    max-height: 30% !important;
+}
+
+
+/* Carousel at the GW page*/
+.carousel-container {
+    background-color: var(--secondary-color);
+    width: 100%;
+}
+
+.carousel {
+    width: 80%; /* Adjust the width of the carousel container as needed */
+    margin: auto; /* Center the carousel on the page */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.carousel-item {
+    display: none; /* Hide all carousel items by default */
+}
+
+.carousel-inner {
+    width: 70%;
+}
+
+.carousel-item > img {
+    width: 100%;
+    max-height: 30% !important;
+}
+
+/* Section divider */
+.page-section {
+    margin-top: 3%;
+    width: fit-content;
+    height: fit-content;
+    padding: 15px;
+    margin-left: calc(3.5% + 5px);
+    background-color:var(--secondary-color);
+    box-shadow: -5px 0 0 0px var(--highlight-color);
+}
+
+.page-section-lg {
+    margin-top: 3%;
+    width: 150px;
+    height: fit-content;
+    padding: 15px;
+    margin-left: calc(3.5% + 5px);
+    background-color:var(--secondary-color);
+    box-shadow: -5px 0 0 0px var(--highlight-color);
+}
+
+.page-section h4 {
+    color: var(--text-color);
+    position: relative;
+    top: 50%;
+}
+
+.text-section {
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 93%;
+}
+
+.text-section p {
+    color: var(--text-color);
+}
+
+.text-section ol {
+    color: var(--text-color);
+}
+
+/* Table */
+table {
+    font-size: 15px;
+    table-layout: auto;
+}
+
+.table {
+    border-color: var(--table-border) !important;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+    border-color: var(--table-cell-border) !important;
+}
+
+.dataTables_info {
+    color: var(--text-color) !important;
+}
+
+.dataTables_filter {
+    color: var(--text-color) !important;
+}
+
+.dataTables_filter input {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+}
+
+.table-bordered th, .table-bordered td {
+    border-color: var(--table-column-border);
+    border-top-color: var(--table-column-border);
+    border-right-color: var(--table-column-border);
+    border-bottom-color: var(--table-column-border);
+    border-left-color: var(--table-column-border);
+}
+
+.table > thead > tr > th {
+    color: var(--text-color);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: none !important;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td, 
+.table-striped > tbody > tr:nth-child(odd) > th {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    transition: all 0.2s linear;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td:hover, 
+.table-striped > tbody > tr:nth-child(odd) > th:hover {
+    color: var(--text-color);
+    background-color: var(--table-hover-1);
+}
+
+.table-striped > tbody > tr:nth-child(even) > td, 
+.table-striped > tbody > tr:nth-child(even) > th {
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    transition: all 0.2s linear;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td:hover, 
+.table-striped > tbody > tr:nth-child(even) > th:hover {
+    color: var(--text-color);
+    background-color: var(--table-hover-2);
+}
+
+.table-striped > tbody > tr > td > div, 
+.table-striped > tbody > tr > th > div {
+    display: inline-block;
+}
+
+.table-striped > tbody > tr > td > span, 
+.table-striped > tbody > tr > th > span {
+    display: inline-block;
+}
+
+
+/* Button to roll the screen to the top*/
+#to-top-button {
+    display: none;
+    position: fixed;
+    background-color: var(--highlight-color);
+    bottom: 20px;
+    right: 30px;
+    border-radius: 50%;
+    z-index: 3;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid var(--secondary-color);
+    outline: none;
+    color: var(--top-button-text-color);
+    cursor: pointer;
+    padding: 15px;
+    transition: all 0.2s linear;
+}
+
+#to-top-button:hover {
+    background-color: var(--highlight-color);
+    color: var(--secondary-color);
+}
+
+#toggle-theme-button {
+    display: block;
+    position: fixed;
+    background-color: var(--highlight-color);
+    top: 20px;
+    right: 30px;
+    border-radius: 5%;
+    z-index: 3;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid var(--secondary-color);
+    outline: none;
+    color: var(--top-button-text-color);
+    cursor: pointer;
+    padding: 15px;
+    transition: all 0.2s linear;
+}
+
+#toggle-theme-button:hover {
+    background-color: var(--highlight-color);
+    color: var(--secondary-color);
+}
+
+.name {
+    color: var(--highlight-color) !important;
+}
+
+.work {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+
+/* About Us page*/
+.about {
+    color: var(--text-color);
+}
+
+.about span {
+    font-size: 13px;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.v-profile {
+    color: var(--highlight-color);
+    cursor: pointer;
+}
+
+.col-md-3 {
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+}
+
+.footer {
+    background-color: var(--secondary-color);
+    width: 100%;
+    --bs-gutter-x: 0rem !important; /* Fix right margin */
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.my-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.pb-3 {
+    padding-bottom: 1rem !important;
+    margin-bottom: 1rem ! important;
+}
+
+.nav{
+    width: 93%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    justify-content: center !important;
+    border-bottom: 1px solid var(--highlight-color) !important;
+}
+
+.ftco-navbar-light .navbar-toggler {
+    color: var(--burger-icon-color) !important;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: var(--text-muted) !important;
+    text-align: center;
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+    border: 1px solid #000;
+    padding: 2px 0;
+    background-color: var(--scroll-bar-track-background);
+}
+
+.scroll-bar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--scroll-bar-background);
+    border: 1px solid #000;
+}
+
+
+/*  Plot section */
+.plot-container {
+    padding: 10px;
+    background-color: var(--primnary-color);
+    border: solid 1px var(--plot-container);
+}
+
+.plot-control-panel {
+    background-color: var(--primary-color);
+}
+
+#plot {
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 100%;
+}
+
+.axis-white line {
+    stroke: var(--text-color);
+    stroke-width: 3px;
+  }
+  
+.axis-white path {
+    stroke: var(--text-color);
+    stroke-width: 3px;
+}
+  
+.axis-white text {
+    fill: var(--text-color);
+    font-size: 20px;
+}
+
+.grid line {
+    stroke: var(--grid-line);
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges; 
+  }
+  
+.grid path {
+    stroke-width: 0;
+}
+
+.plot-control-panel {
+    padding-bottom: 30px;
+}
+
+.sources-title {
+    padding: 10px;
+}
+
+.sources-control {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    border: solid 1px var(--plot-container);
+    margin: auto;
+}
+
+.sources-control:hover {
+    background-color: var(--table-hover-1);
+    border-color: var(--highlight-color);
+    transition: all 0.s linear;
+}
+
+.horizontal-controls-title {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+}
+
+.vertical-controls-title {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+}
+
+#x-plot-control-anchor {
+    padding: 10px;
+    border: solid 1px var(--plot-container);
+}
+
+#x-plot-control-anchor:hover {
+    background-color: var(--table-hover-1);
+    border-color: var(--highlight-color);
+    transition: all 0.4s linear;
+}
+
+#y-plot-control-anchor {
+    padding: 10px;
+    border: solid 1px var(--plot-container);
+}
+
+#y-plot-control-anchor:hover {
+    background-color: var(--table-hover-1);
+    border-color: var(--highlight-color);
+    transition: all 0.4s linear;
+}
+
+.form-check-input:checked {
+    background-color: var(--highlight-color) !important;
+    border-color: var(--highlight-color) !important;
+}
+
+.form-check-label {
+    margin-top: -0.7em !important;
+}
+
+.btn {
+    background: var(--secondary-color) !important;
+    bottom: -5px !important;
+    right: 10px !important;
+    border-radius: 70%;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color) !important;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.card{
+    border: none;
+    height: 100%
+}
+.copy-button{
+    height: 30px;
+    width: 30px;
+    border-color: var(--table-hover-1) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative
+}
+.tip{
+    background-color: var(--secondary-color);
+    padding: 0 14px;
+    line-height: 27px;
+    position: absolute;
+    border-radius: 4px;
+    z-index: 100;
+    color: var(--text-color);
+    font-size: 12px;
+    animation-name: tip;
+    animation-duration: .6s;
+    animation-fill-mode: both
+}
+.tip:before{content: "";
+    background-color: var(--secondary-color);
+    height: 10px;
+    width: 10px;
+    display: block;
+    position: absolute;
+    transform: rotate(45deg);
+    top: -4px;
+    left: 17px
+}
+#copied_tip{
+    animation-name: come_and_leave;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    bottom: -35px;
+    left:2px
+}
+.text-line{
+    font-size: 14px
+}
+
+figcaption{
+    color:var(--text-color);
+    font-size:small;
+    text-align: center;
+    display:block;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 60%;
+    margin: auto;
+}

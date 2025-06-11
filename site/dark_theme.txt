@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #21262d;
+    --link-color:  rgb(139, 133, 133) !important;
+    --highlight-color: #58a6ff;
+    --text-color: #ffffff;
+    --table-hover-1: #393d3d;
+    --table-hover-2: #21262d9d;
+    --table-border: #383d3f;
+    --table-cell-border: rgb(134, 125, 110);
+    --table-column-border: rgb(56, 61, 63);
+    --text-muted: #ece8e1;
+    --scroll-bar-background: #737272;
+    --scroll-bar-track-background: #404040;
+    --plot-container: rgba(211, 211, 211, 0.318);
+}
