@@ -5,7 +5,7 @@ function plot() {
   // Get custom functions if any
   const config = pair in plotConfig ? plotConfig[pair] : plotConfig['default'];
 
-  // Get plot data from pulsar_data
+  // Get plot data from blackhole_data
   [x, y] = getPlotData();
 
   // Custom data filter functions
@@ -162,50 +162,50 @@ function plot() {
 
 // Function to filter data by confirmed / isLimit / isAssumed
 function getPlotData() {
-  let pulsars = pulsarData
+  let blackhole = BlackHoleData
   if ( pcs.confirmed ) {
-    pulsars = pulsarData.filter(pulsar => pulsar.Confirmed);
+    blackholes = BlackHoleData.filter(blackhole => blackhole.Confirmed);
   }
-  x = pulsars.map(pulsar => {
+  x = blackholes.map(blackhole => {
     let isLimit = false ;
     let isAssumed = false;
     
-    if ( pulsar[pcs['x']].hasOwnProperty('isLimit') ) {
-      isLimit = pulsar[pcs['x']].isLimit;
+    if ( blackhole[pcs['x']].hasOwnProperty('isLimit') ) {
+      isLimit = blackhole[pcs['x']].isLimit;
     }
     
-    if ( pulsar[pcs['x']].hasOwnProperty('isAssumed') ) {
-      isAssumed = pulsar[pcs['x']].isAssumed;
+    if ( blackhole[pcs['x']].hasOwnProperty('isAssumed') ) {
+      isAssumed = blackhole[pcs['x']].isAssumed;
     }
     
     return({
-      'value': pulsar[pcs['x']].value,
-      'type': pulsar.Type,
-      'name': pulsar.name,
+      'value': blackhole[pcs['x']].value,
+      'type': blackhole.Type,
+      'name': blackhole.name,
       'isLimit': isLimit,
       'isAssumed': isAssumed,
-      'Confirmed': pulsar.Confirmed,
+      'Confirmed': blackhole.Confirmed,
     })
   });
-  y = pulsars.map(pulsar => { 
+  y = blackholes.map(blackhole => { 
     let isLimit = false ;
     let isAssumed = false;
     
-    if ( pulsar[pcs['y']].hasOwnProperty('isLimit') ) {
-      isLimit = pulsar[pcs['y']].isLimit;
+    if ( blackhole[pcs['y']].hasOwnProperty('isLimit') ) {
+      isLimit = blackhole[pcs['y']].isLimit;
     }
     
-    if ( pulsar[pcs['y']].hasOwnProperty('isAssumed') ) {
-      isAssumed = pulsar[pcs['y']].isAssumed;
+    if ( blackhole[pcs['y']].hasOwnProperty('isAssumed') ) {
+      isAssumed = blackhole[pcs['y']].isAssumed;
     }
     
     return({
-      'value': pulsar[pcs['y']].value,
-      'type': pulsar.Type,
-      'name': pulsar.name,
+      'value': blackhole[pcs['y']].value,
+      'type': blackhole.Type,
+      'name': blackhole.name,
       'isLimit': isLimit,
       'isAssumed': isAssumed,
-      'Confirmed': pulsar.Confirmed,
+      'Confirmed': blackhole.Confirmed,
     })
   });
   // Filter non numerical values

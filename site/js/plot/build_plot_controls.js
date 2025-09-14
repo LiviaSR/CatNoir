@@ -7,7 +7,7 @@ function buildPlotControls(axis) {
   const rowLength = 3;
 
   let properties = []
-  for ( let property of Object.keys(pulsarData[0]) ) {
+  for ( let property of Object.keys(BlackHoleData[0]) ) {
     if ( ! ignoreField.includes(property) ) {
       properties.push(property);
     }
