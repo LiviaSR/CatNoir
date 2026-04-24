@@ -1,0 +1,3194 @@
+[
+    {
+        "name": "GRS 1915+105",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 33.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.5,
+                "down": 1.5
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 140.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 15.0,
+                "down": 15.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 70.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.0,
+                "down": 2.0
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.08,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.04,
+                "down": 0.02
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 14.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.0,
+                "down": 4.0
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 13.43,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.72,
+                "down": 3.56
+            }
+        }
+    },
+    {
+        "name": "GRS 1124-684",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.43260249,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 9e-08,
+                "down": 9e-08
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 406.8,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.7,
+                "down": 2.7
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 43.2,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.1,
+                "down": 2.7
+            },
+            "type": "an"
+        },
+        "q": {
+            "value": 0.079,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.007,
+                "down": 0.007
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 11.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.1,
+                "down": 1.4
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 10.92,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.14,
+                "down": 1.0
+            }
+        }
+    },
+    {
+        "name": "XTE J1118+480",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.1699337,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2e-07,
+                "down": 2e-07
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 710.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.6,
+                "down": 2.6
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 73.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 5.5,
+                "down": 5.5
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.024,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.009,
+                "down": 0.009
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 7.46,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.34,
+                "down": 0.69
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 7.34,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.99,
+                "down": 0.33
+            }
+        }
+    },
+    {
+        "name": "3A 0620-003",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.32301415,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 7e-08,
+                "down": 7e-08
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 435.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.5,
+                "down": 0.5
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 51.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.9,
+                "down": 0.9
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.06,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.004,
+                "down": 0.004
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 6.61,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.23,
+                "down": 0.17
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 6.63,
+            "type": "n",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.26,
+                "down": 0.26
+            }
+        }
+    },
+    {
+        "name": "MAXI J1305-704",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.394,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.004,
+                "down": 0.004
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 554.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 8.0,
+                "down": 8.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 72.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.0,
+                "down": 8.0
+            },
+            "type": "an"
+        },
+        "q": {
+            "value": 0.05,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.007,
+                "down": 0.013
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 8.9,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.6,
+                "down": 1.0
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 8.9,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.92,
+                "down": 0.59
+            }
+        }
+    },
+    {
+        "name": "GS 2023+338",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 6.4714,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0001,
+                "down": 0.0001
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 208.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.7,
+                "down": 0.7
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 67.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 3.0,
+                "down": 1.0
+            },
+            "type": "an"
+        },
+        "q": {
+            "value": 0.06,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.004,
+                "down": 0.005
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 9.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.2,
+                "down": 0.6
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 8.56,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.29,
+                "down": 0.48
+            }
+        }
+    },
+    {
+        "name": "GRO J1655-40",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 2.621928,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 4e-06,
+                "down": 2e-05
+            },
+            "type": "an"
+        },
+        "K_cp": {
+            "value": 226.2,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.4,
+                "down": 1.4
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 65.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.8,
+                "down": 0.8
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 3.8,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.3,
+                "down": 0.3
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 6.86,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.52,
+                "down": 0.49
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 6.84,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.57,
+                "down": 0.49
+            }
+        }
+    },
+    {
+        "name": "XTE J1859+226",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.276,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.003,
+                "down": 0.003
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 562.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 40.0,
+                "down": 40.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 66.6,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.3,
+                "down": 4.3
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.07,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.01,
+                "down": 0.01
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 7.8,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.9,
+                "down": 1.9
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 8.52,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 6.2,
+                "down": 2.48
+            }
+        }
+    },
+    {
+        "name": "XTE J1550-564",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1.5420333,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.4e-06,
+                "down": 2.4e-06
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 363.14,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 5.97,
+                "down": 5.97
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 74.7,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 3.8,
+                "down": 3.8
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.033,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.003,
+                "down": 0.003
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 9.1,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.61,
+                "down": 0.61
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 9.06,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.81,
+                "down": 0.54
+            }
+        }
+    },
+    {
+        "name": "SAX J1819.3-2525",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 2.8173,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1e-05,
+                "down": 1e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 211.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 3.1,
+                "down": 3.1
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 72.3,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.1,
+                "down": 4.1
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.447,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.048,
+                "down": 0.034
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 6.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.6,
+                "down": 0.6
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 6.68,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.82,
+                "down": 0.51
+            }
+        }
+    },
+    {
+        "name": "Cyg X-1",
+        "Confirmed": true,
+        "Type": "HMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 5.599836,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.4e-05,
+                "down": 2.4e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 75.57,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.7,
+                "down": 0.7
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.018,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.003,
+                "down": 0.003
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 27.06,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.76,
+                "down": 0.76
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 1.29,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.17,
+                "down": 0.14
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 14.8,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.0,
+                "down": 1.0
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 14.06,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.59,
+                "down": 1.87
+            }
+        }
+    },
+    {
+        "name": "LMC X-1",
+        "Confirmed": true,
+        "Type": "HMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 3.90917,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 5e-05,
+                "down": 5e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 71.61,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.1,
+                "down": 1.1
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.0256,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0066,
+                "down": 0.0066
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 36.38,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.02,
+                "down": 2.02
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 2.81,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.62,
+                "down": 0.41
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 10.91,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.54,
+                "down": 1.54
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 10.48,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 4.65,
+                "down": 2.14
+            }
+        }
+    },
+    {
+        "name": "LMC X-3",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1.7048089,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.1e-06,
+                "down": 1.1e-06
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 241.1,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 6.2,
+                "down": 6.2
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 69.24,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.72,
+                "down": 0.72
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 1.93,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.2,
+                "down": 0.2
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 6.98,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.56,
+                "down": 0.56
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 6.93,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.17,
+                "down": 0.86
+            }
+        }
+    },
+    {
+        "name": "M33 X-7",
+        "Confirmed": true,
+        "Type": "HMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 3.453014,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2e-05,
+                "down": 2e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 108.9,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 5.7,
+                "down": 5.7
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.0185,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0077,
+                "down": 0.0077
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 65.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 6.55,
+                "down": 6.55
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 3.3,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.33,
+                "down": 0.33
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 15.65,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.45,
+                "down": 1.45
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 15.16,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.23,
+                "down": 3.23
+            }
+        }
+    },
+    {
+        "name": "2MASS J0521+435 cp.",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 83.2,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.06,
+                "down": 0.06
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 44.6,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.1,
+                "down": 0.1
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.0048,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0026,
+                "down": 0.0026
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 75.43,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.16,
+                "down": 2.35
+            },
+            "type": "an"
+        },
+        "q": {
+            "value": 0.74,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.26,
+                "down": 0.17
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 3.3,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.8,
+                "down": 0.7
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 2.52,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.92,
+                "down": 0.4
+            }
+        }
+    },
+    {
+        "name": "GAIA BH1",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 185.59,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.05,
+                "down": 0.05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 66.7,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.6,
+                "down": 0.6
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.451,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.005,
+                "down": 0.005
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 126.6,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.4,
+                "down": 0.4
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.097,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.005,
+                "down": 0.005
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 9.62,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.18,
+                "down": 0.18
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 9.42,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.33,
+                "down": 0.3
+            }
+        }
+    },
+    {
+        "name": "GAIA BH2",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1276.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.6,
+                "down": 0.6
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 25.23,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.04,
+                "down": 0.04
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.5176,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0009,
+                "down": 0.0009
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 34.87,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.34,
+                "down": 0.34
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.1196868009,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.049,
+                "down": 0.049
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 8.64,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.34,
+                "down": 0.34
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 8.8,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.94,
+                "down": 0.72
+            }
+        }
+    },
+    {
+        "name": "GAIA BH3",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 4253.1,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 98.5,
+                "down": 98.5
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "an"
+        },
+        "e": {
+            "value": 0.7291,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0048,
+                "down": 0.0048
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 110.58,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.095,
+                "down": 0.095
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 32.7,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.8,
+                "down": 0.8
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 32.7,
+            "type": "n",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.8,
+                "down": 0.8
+            }
+        }
+    },
+    {
+        "name": "HD 130298",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 14.62959,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.000854,
+                "down": 0.000854
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 71.78,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.68,
+                "down": 0.68
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.457,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.007,
+                "down": 0.007
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 54.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 16.0,
+                "down": 16.0
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 3.18,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.72,
+                "down": 0.499
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 8.8,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 3.5,
+                "down": 1.5
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 11.57,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 11.51,
+                "down": 3.84
+            }
+        }
+    },
+    {
+        "name": "OGLE-2011-BLG-0462",
+        "Confirmed": true,
+        "Type": "Isolated",
+        "hasReferences": false,
+        "P_orb": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "an"
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "an"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "an"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 7.15,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.83,
+                "down": 0.83
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 7.15,
+            "type": "n",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.83,
+                "down": 0.83
+            }
+        }
+    },
+    {
+        "name": "G3425",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "m_literat": {
+            "value": 3.6,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.8,
+                "down": 0.5
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 3.44,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.45,
+                "down": 1.37
+            }
+        }
+    },
+    {
+        "name": "MAXI J0637-430",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "m_literat": {
+            "value": 5.1,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.6,
+                "down": 1.6
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 5.1,
+            "type": "n",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.6,
+                "down": 1.6
+            }
+        }
+    },
+    {
+        "name": "MAXI J1813-095",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "m_literat": {
+            "value": 7.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.5,
+                "down": 1.5
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 7.4,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.9,
+                "down": 0.93
+            }
+        }
+    },
+    {
+        "name": "MAXI J1535-571",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "m_literat": {
+            "value": 8.9,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.0,
+                "down": 1.0
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 8.9,
+            "type": "n",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.0,
+                "down": 1.0
+            }
+        }
+    },
+    {
+        "name": "XTE J1746-322",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "K_cp": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": null
+        },
+        "m_literat": {
+            "value": 11.21,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.65,
+                "down": 1.96
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 11.13,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.61,
+                "down": 2.0
+            }
+        }
+    },
+    {
+        "name": "Swift J1727.8-1613",
+        "Confirmed": true,
+        "Type": "HMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.450128,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.2e-05,
+                "down": 4.2e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 390.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.0,
+                "down": 4.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 60.0,
+                "down": 74.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.001,
+                "down": 1.0
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": 3.12,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.1,
+                "down": 0.1
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 3.71,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.03,
+                "down": 0.71
+            }
+        }
+    },
+    {
+        "name": "GRS 1009-45",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.285206,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.38e-06,
+                "down": 1.38e-06
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 475.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 5.9,
+                "down": 5.9
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 78.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 7.8,
+                "down": 7.8
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": 0.137,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.015,
+                "down": 0.015
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 4.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.44,
+                "down": 0.44
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 4.35,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.64,
+                "down": 0.21
+            }
+        }
+    },
+    {
+        "name": "4U 1543-475",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1.116407,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 3e-06,
+                "down": 3e-06
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 129.33,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.68,
+                "down": 1.79
+            },
+            "type": "an"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 20.7,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.5,
+                "down": 1.5
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.25,
+                "down": 0.31
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 8.45,
+                "down": 10.39
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 9.15,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.5,
+                "down": 1.47
+            }
+        }
+    },
+    {
+        "name": "3A 1524-617",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.26,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.01,
+                "down": 0.01
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 501.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 52.0,
+                "down": 52.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 57.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 13.0,
+                "down": 13.0
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.01,
+                "down": 0.31
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": 5.8,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 3.0,
+                "down": 2.4
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 5.46,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.9,
+                "down": 1.13
+            }
+        }
+    },
+    {
+        "name": "GRS 1716-249",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.278,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.008,
+                "down": 0.008
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 521.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 52.0,
+                "down": 52.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": 61.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 15.0,
+                "down": 15.0
+            },
+            "type": "n"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.02,
+                "down": 0.25
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": 6.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 3.2,
+                "down": 2.0
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 5.12,
+            "type": "n",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.11,
+                "down": 0.11
+            }
+        }
+    },
+    {
+        "name": "GS 1354-64",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 2.54451,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 8e-05,
+                "down": 8e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 279.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.7,
+                "down": 4.7
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 50.0,
+                "down": 80.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 0.12,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.03,
+                "down": 0.04
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 7.6,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.7,
+                "down": 0.7
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 8.46,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 4.61,
+                "down": 0.46
+            }
+        }
+    },
+    {
+        "name": "GS 2000+251",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.344086,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2e-06,
+                "down": 2e-06
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 519.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 5.1,
+                "down": 5.1
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 54.0,
+                "down": 60.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 0.034,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.015,
+                "down": 0.006
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.5,
+                "down": 8.8
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 9.05,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.9,
+                "down": 0.48
+            }
+        }
+    },
+    {
+        "name": "H 1705-250",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.5228,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0044,
+                "down": 0.0044
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 441.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 6.0,
+                "down": 6.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 60.0,
+                "down": 80.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 0.014,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.019,
+                "down": 0.012
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.0,
+                "down": 7.4
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 5.56,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.34,
+                "down": 0.3
+            }
+        }
+    },
+    {
+        "name": "MAXI J1820+070",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.68549,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1e-05,
+                "down": 1e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 417.7,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 3.9,
+                "down": 3.9
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 66.0,
+                "down": 81.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 0.072,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.012,
+                "down": 0.012
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.73,
+                "down": 8.34
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 6.59,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.88,
+                "down": 0.28
+            }
+        }
+    },
+    {
+        "name": "GX 339-4",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1.7587,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0005,
+                "down": 0.0005
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 219.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 3.0,
+                "down": 3.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 37.0,
+                "down": 78.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 0.18,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.05,
+                "down": 0.05
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.3,
+                "down": 9.5
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 3.49,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 4.1,
+                "down": 0.08
+            }
+        }
+    },
+    {
+        "name": "NGC 300 X-1",
+        "Confirmed": true,
+        "Type": "HMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1.3663375,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.25e-05,
+                "down": 1.25e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 267.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 7.7,
+                "down": 7.7
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 60.0,
+                "down": 75.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 1.42,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.7,
+                "down": 0.33
+            },
+            "type": "an"
+        },
+        "m_literat": {
+            "value": 17.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4.0,
+                "down": 4.0
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 21.44,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 16.25,
+                "down": 4.41
+            }
+        }
+    },
+    {
+        "name": "VFTS 243",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 10.4031,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0004,
+                "down": 0.0004
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 81.4,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1.3,
+                "down": 1.3
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": 0.017,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.012,
+                "down": 0.012
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 40.0,
+                "down": 90.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": 0.404,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.201,
+                "down": 0.201
+            },
+            "type": "n"
+        },
+        "m_literat": {
+            "value": 10.1,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.0,
+                "down": 2.0
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 8.82,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 8.88,
+                "down": 1.96
+            }
+        }
+    },
+    {
+        "name": "MAXI J1659-152",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.1006,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0002,
+                "down": 0.0002
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 750.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 80.0,
+                "down": 80.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 70.0,
+                "down": 80.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.02,
+                "down": 0.7
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 3.3,
+                "down": 7.5
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 7.96,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 5.96,
+                "down": 2.09
+            }
+        }
+    },
+    {
+        "name": "XTE J1650-500",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.3205,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.0007,
+                "down": 0.0007
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 435.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 30.0,
+                "down": 30.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 50.0,
+                "down": 70.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.01,
+                "down": 0.5
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 4.0,
+                "down": 7.3
+            },
+            "type": "u"
+        },
+        "m_bh": {
+            "value": 5.24,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 3.45,
+                "down": 1.13
+            }
+        }
+    },
+    {
+        "name": "GRO J0422+32",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.211522,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 4e-07,
+                "down": 4e-07
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 380.6,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 6.5,
+                "down": 6.5
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 33.0,
+                "down": 49.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.1,
+                "down": 0.3
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": 6.5,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.9,
+                "down": 2.9
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 4.13,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.11,
+                "down": 0.7
+            }
+        }
+    },
+    {
+        "name": "MAXI J1803-298",
+        "Confirmed": true,
+        "Type": "LMXB",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 0.29,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 0.03,
+                "down": 0.03
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 515.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 55.0,
+                "down": 55.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 65.0,
+                "down": 85.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.01,
+                "down": 0.2
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": 8.9,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 1.6,
+                "down": 1.0
+            },
+            "type": "an"
+        },
+        "m_bh": {
+            "value": 5.18,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 2.76,
+                "down": 1.29
+            }
+        }
+    },
+    {
+        "name": "IC10  X-1",
+        "Confirmed": true,
+        "Type": "Non-interacting",
+        "hasReferences": false,
+        "P_orb": {
+            "value": 1.45175,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 1e-05,
+                "down": 1e-05
+            },
+            "type": "n"
+        },
+        "K_cp": {
+            "value": 370.0,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 20.0,
+                "down": 20.0
+            },
+            "type": "n"
+        },
+        "e": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": null,
+                "up": null,
+                "down": null
+            },
+            "type": "n"
+        },
+        "orb_angle": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 78.0,
+                "down": 90.0
+            },
+            "type": "u"
+        },
+        "q": {
+            "value": null,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 0.4749,
+                "down": 1.3756
+            },
+            "type": "u"
+        },
+        "m_literat": {
+            "value": 23.1,
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": true,
+                "up": 2.1,
+                "down": 2.1
+            },
+            "type": "n"
+        },
+        "m_bh": {
+            "value": 28.86,
+            "type": "an",
+            "hasReferences": false,
+            "uncertainty": {
+                "symmetrical": false,
+                "up": 14.61,
+                "down": 8.11
+            }
+        }
+    }
+]

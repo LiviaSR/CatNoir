@@ -1,0 +1,71 @@
+   <!-- <script>
+       Build second table
+      $(function () {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+      });
+      buildSecondTable();
+    </script> -->
+
+   <!-- <script>
+      // Sorting table columns
+      function parse(s) {
+        s = s.replace(/<div><\/div><span data-bs-toggle="tooltip" data-bs-placement="right">/, '');
+        s = s.replace(/<\/span>.*$/, '');
+
+        if (s[0] === 'J' || s[0] === 'B') {
+          return s.replace(/^[JB]+/, ''); // Sorting pulsar names only numerically
+        }
+
+        s = s.replace(/[ ]*/, ''); // Remove all spaces from string
+
+        if ( s === '-' ) { return -Infinity; }
+        if ( s === '∞') { return Infinity; }
+
+        s = s.replace(/\([0-9\.]*\)/, '');
+        s = s.replace(/\(\+[0-9\.]*\/-[0-9\.]*\)/, '');
+
+        return parseFloat(s);
+
+      }
+
+      jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+        "number-with-uncertainty-pre": function (s) {
+          return parse(s);
+        },
+        "number-with-uncertainty-asc": function (a, b) {
+          return ((a > b) ? 1 : 0);
+        },
+        "number-with-uncertainty-desc": function (a, b) {
+          return ((a < b) ? 1 : 0);
+        }
+      });
+
+      jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+        "mp-pre": function (s) {
+          return (( /^&lt;/.test(s) || /^\[/.test(s) ) ? '-' + s : '+' + s);
+        },
+        "mp-asc": function (a, b) {
+          return ((a > b) ? 1 : 0);
+        },
+        "mp-desc": function (a, b) {
+          return ((a < b) ? 1 : 0);
+        }
+      });
+     // $(function() {
+       // $('#BH-catalogue').dataTable({
+        //  paging: false,
+         /// columnDefs: [
+           // { type: 'number-with-uncertainty', targets: [0, 2, 6, 12] },
+            //{ type: 'mp', targets: 7 }
+          //]
+       // });
+     // });
+      $(function() {
+        $('#DNS-kinematics').dataTable({
+          paging: false,
+          columnDefs: [
+            { type: 'number-with-uncertainty', targets: [0, 1, 5, 6] },
+          ]
+        });
+      });
+    </script> -->

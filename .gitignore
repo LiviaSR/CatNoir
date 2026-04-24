@@ -1,3 +1,8 @@
 site/.vscode/
 site/refs.bib
 push.sh
+
+# Vite / Node
+node_modules/
+dist/
+.vite/

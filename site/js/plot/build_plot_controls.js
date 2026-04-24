@@ -3,7 +3,7 @@ function buildPlotControls(axis) {
   let controlAnchor = document.getElementById(`${axis}-plot-control-anchor`);
 
   // Tags in this array shall be ignored when building plot controls
-  const ignoreField = ['name', 'Type', 'DoubleSystem', 'systemName', 'hasReferences', 'references', 'comments', 'Confirmed', 'v_t', 'v_1sig', 'v_90perct', 'kick_interv'];
+  const ignoreField = ['name', 'Type', 'hasReferences'];
   const rowLength = 3;
 
   let properties = []

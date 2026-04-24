@@ -1,10 +1,10 @@
 const defaultColor = (type) => {
   switch(type) {
-    case 'rec':
-      return colors['rec'];
-    case 'nrec':
-      return colors['nrec'];
-    case 'GC':
-      return colors['GC']
+    case 'LMXB':
+      return colors['LMXB'];
+    case 'HMXB':
+      return colors['HMXB'];
+    case 'other':
+      return colors['other']
   }  
 }

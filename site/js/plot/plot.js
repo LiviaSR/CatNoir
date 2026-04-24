@@ -85,7 +85,7 @@ function plot() {
  
   const mousemove = function(event, d) {
     Tooltip
-      .html(`PSR ${d[0].name}<br>
+      .html(`${d[0].name}<br>
       Confirmed: ${d[0].Confirmed}<br>
       <div style="display: flex !important;"><MathML style="margin-top: -0.7em !important;">${symbols[pcs['x']]}</MathML> : ${d[0].value}</div><br>
       <div style="display: flex !important;"><MathML style="margin-top: -0.7em !important;">${symbols[pcs['y']]}</MathML> : ${d[1].value}`)

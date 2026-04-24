@@ -1,3 +1,52 @@
+var BlackHoleData = [];
+
+function initCatalog(callback) {
+  fetch('/js/BH_Catalog.json')
+    .then(function(res) {
+      if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+      return res.text();
+    })
+    .then(function(text) {
+      text = text.replace(/^\uFEFF/, '');
+      if (/^\s*</.test(text)) {
+        console.error(
+          'Catalog response looks like HTML, not JSON. Serve the site via Vite (npm run dev) so /js/BH_Catalog.json resolves.'
+        );
+        return;
+      }
+      var data;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error('Failed to load catalog:', e);
+        var msg = String(e.message || e);
+        var posMatch = /position (\d+)/i.exec(msg);
+        if (posMatch) {
+          var pos = parseInt(posMatch[1], 10);
+          var start = Math.max(0, pos - 100);
+          var end = Math.min(text.length, pos + 100);
+          console.error('JSON near error (pos ' + pos + '):\n' + text.slice(start, end));
+          var before = text.slice(0, pos);
+          var line = before.split('\n').length;
+          var lastNl = before.lastIndexOf('\n');
+          var col = pos - lastNl;
+          console.error('Location: line ' + line + ', column ' + col);
+          console.error(
+            'Hint: JSON is invalid near the NGC 300 X-1 → K_cp block (~line 2434 in a full catalog). ' +
+              'Common causes: trailing comma before "}", truncated file, or merge conflict. ' +
+              'Fix: restore site/js/BH_Catalog.json from git or re-run convertion_to_json.py; validate with: python3 -m json.tool site/js/BH_Catalog.json'
+          );
+        }
+        return;
+      }
+      BlackHoleData = data;
+      if (callback) callback();
+    })
+    .catch(function(err) {
+      console.error('Failed to load catalog:', err);
+    });
+}
+
 function trimZeros(n) {
   return String(n).replace(/^0+\.0*/, '');
 }
@@ -65,14 +114,38 @@ function addReferences(references, td) {
   }
 }
 
-function addUncertainty(uncertainty, td) {
-  if ( uncertainty.symmetrical ) { td.innerHTML += '(' + trimZeros(uncertainty.up) + ')'; } 
-  else { td.innerHTML += '(+' + trimZeros(uncertainty.up) + '/-' + trimZeros(uncertainty.down) + ')'; }
+function fillFieldCell(field, td) {
+  var type  = field.type;
+  var value = field.value;
+  var unc   = field.uncertainty;
+  var hasUnc = unc && unc.up != null;
+
+  if (type === 'u') {
+    // Uniform distribution: (down, up)
+    if (hasUnc) {
+      td.innerHTML = '(' + unc.down + ', ' + unc.up + ')';
+    } else {
+      td.innerHTML = '-';
+    }
+  } else if (value != null) {
+    td.innerHTML = value;
+    if (hasUnc) {
+      if (type === 'n') {
+        // Symmetric normal: value(σ)
+        td.innerHTML += '(' + unc.up + ')';
+      } else {
+        // Asymmetric normal ('an'): value(+up/-down)
+        td.innerHTML += '(+' + unc.up + '/-' + unc.down + ')';
+      }
+    }
+  } else {
+    td.innerHTML = '-';
+  }
 }
 
 function addComment(comment, tdName, span) {
-  span.setAttribute('data-toggle', 'tooltip');
-  span.setAttribute('data-placement', 'right');
+  span.setAttribute('data-bs-toggle', 'tooltip');
+  span.setAttribute('data-bs-placement', 'right');
   span.setAttribute('title', comment);
 
   tdName.appendChild(span);
@@ -109,69 +182,46 @@ function buildBlackHoleTable() {
 
     // Pb (orbital period)
     let tdPb = document.createElement('td');
-    tdPb.innerHTML = data.P_orb.value;
-    // Pb References
-    if ( data.P_orb.hasReferences ) { 
-      addReferences(data.P_orb.references, tdPb); }
-    tdPb.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
+    fillFieldCell(data.P_orb, tdPb);
+    if (data.P_orb.hasReferences) { addReferences(data.P_orb.references, tdPb); }
+    tdPb.setAttribute('style', 'white-space: nowrap');
 
     // K_cp (Companion star radial velocity semi-amplitude)
     let tdKcp = document.createElement('td');
-    tdKcp.innerHTML = data.K_cp.value;
-    // f References
-    if ( data.K_cp.hasReferences ) { 
-      addReferences(data.K_cp.references, tdKcp); }
-    tdKcp.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
+    fillFieldCell(data.K_cp, tdKcp);
+    if (data.K_cp.hasReferences) { addReferences(data.K_cp.references, tdKcp); }
+    tdKcp.setAttribute('style', 'white-space: nowrap');
 
     // e
     let tdE = document.createElement('td');
-    tdE.innerHTML = data.e.value;
-    // e References
-    if ( data.e.hasReferences ) { 
-      addReferences(data.e.references, tdE); }
-    tdE.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
+    fillFieldCell(data.e, tdE);
+    if (data.e.hasReferences) { addReferences(data.e.references, tdE); }
+    tdE.setAttribute('style', 'white-space: nowrap');
 
     // Orbital inclination
     let tdOrbAng = document.createElement('td');
-    if ( data.orb_angle.value ) {
-      tdOrbAng.innerHTML = data.orb_angle.value;
-      // Mt Uncertainty
-      if ( data.orb_angle.hasUncertainty ) { addUncertainty(data.orb_angle.uncertainty, tdOrbAng) }
-      // Mt References
-      if ( data.orb_angle.hasReferences ) { 
-        addReferences(data.orb_angle.references, tdOrbAng); }
-      tdOrbAng.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
-    } else {
-      tdOrbAng.innerHTML = '-';
-    }
+    fillFieldCell(data.orb_angle, tdOrbAng);
+    if (data.orb_angle.hasReferences) { addReferences(data.orb_angle.references, tdOrbAng); }
+    tdOrbAng.setAttribute('style', 'white-space: nowrap');
 
     // Mass ratio
     let tdQ = document.createElement('td');
-    if ( data.q.value ) {
-      tdQ.innerHTML = data.q.value;
-      // Mt Uncertainty
-      if ( data.q.hasUncertainty ) { addUncertainty(data.q.uncertainty, tdOrbAng) }
-      // Mt References
-      if ( data.q.hasReferences ) { 
-        addReferences(data.q.references, tdQ); }
-      tdQ.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
-    } else {
-      tdOrbAng.innerHTML = '-';
+    fillFieldCell(data.q, tdQ);
+    if (data.q.hasReferences) { addReferences(data.q.references, tdQ); }
+    tdQ.setAttribute('style', 'white-space: nowrap');
 
-    // Mc
+    // M_lit
+    let tdMlit = document.createElement('td');
+    fillFieldCell(data.m_literat, tdMlit);
+    if (data.m_literat.hasReferences) { addReferences(data.m_literat.references, tdMlit); }
+    tdMlit.setAttribute('style', 'white-space: nowrap');
+
+    // Mbh
     let tdMbh = document.createElement('td');
-    // Is limit
-    if ( data.m_bh.value) {
-        tdMbh.innerHTML = data.m_bh.value; 
-      // Mc Uncertainty
-      if ( data.m_bh.hasUncertainty ) { addUncertainty(data.m_bh.uncertainty, tdMbh) }
-      // Mc References
-      if ( data.m_bh.hasReferences ) { 
-        addReferences(data.m_bh.references, tdMbh); }
-      tdMbh.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
-      } else {
-        tdMbh.innerHTML = '-';
-      }
+    fillFieldCell(data.m_bh, tdMbh);
+    if (data.m_bh.hasReferences) { addReferences(data.m_bh.references, tdMbh); }
+    tdMbh.setAttribute('style', 'white-space: nowrap');
+
     // Append columns to row
     tr.appendChild(tdName);
     tr.appendChild(tdType);
@@ -180,6 +230,7 @@ function buildBlackHoleTable() {
     tr.appendChild(tdE);
     tr.appendChild(tdOrbAng);
     tr.appendChild(tdQ);
+    tr.appendChild(tdMlit);
     tr.appendChild(tdMbh);
 
     // Append only values to row when "DoubleSystem" property is true
@@ -188,7 +239,7 @@ function buildBlackHoleTable() {
     // Append row to table
     tableAnchor.appendChild(tr);
   }
-}
+
 }
 
 function buildSecondTable() {

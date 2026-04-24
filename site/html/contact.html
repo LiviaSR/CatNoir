@@ -1,215 +1,211 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <title>DoNeutS</title>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link href="../css/jquery.dataTables.min.css" rel="stylesheet">
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/plug-ins/1.12.1/sorting/numString.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
-    <script src="../js/pulsar_data.js"></script>
-    <script src="../js/index.js"></script>
+    <!-- @shared-head -->
+    <title>CatNoir — About Us</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-    <div class="toast">
-        <div class="toast-body">CODED WITH ❤️ BY 🍋 @ 2022</div>
-    </div>
-    <div class="main-header row container-shadow">
-        <div class="col-3 max-planck-logo">
-            <img src="../images/mpg_logo.png" class="d-block" alt="...">
-        </div>
-        <div class="col-6 text-center">
-            <h2 onclick="easterEgg()" class="title" style="user-select: none;">DoNeutS:</h2>
-            <h3 class="title" style="user-select: none;">A Double Neutron Star Catalogue</h3>
-        </div>
-        <div class="col-3 max-planck-logo">
-            <img src="../images/mpifr.png" class="d-block" alt="...">        
-        </div>
-    </div>
-    <div class="container">
-        <hr class="line-break-down" size="1" color="black">
-    </div>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="fa fa-bars"></span> Menu
-                </button>
-                <div class="collapse navbar-collapse" id="ftco-nav">
-                    <ul class="navbar-nav m-auto">
-                        <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
-                    </ul>
-                </div>
+<body class="catnoir-page d-flex flex-column min-vh-100">
+    <!-- @catnoir-header -->
+
+    <main id="main-content" class="page-main flex-grow-1 w-100">
+        <section class="masthead" aria-labelledby="page-title">
+            <div class="masthead__inner">
+                <h1 id="page-title" class="masthead__title">About us</h1>
+                <p class="masthead__lead">People behind the catalogue.</p>
             </div>
-        </nav>
-    </div>
-    <div id="about us" class="page-section-lg">
-        <h5>About Us</h5>
-    </div>
+        </section>
 
-    <div class="d-flex flex-row my-4" style="width: 93%; margin-left: auto; margin-right: auto">
-        <div class="mr-3">
-            <img class="photo" src="../images/livia.JPG" alt="Livia.JPG" style="object-position: -20% 0;">
-        </div>
-        <div class="text-section" style="margin-top: 10px !important">
-            <h5 class="name mb-1">Lívia S. Rocha</h5>
-            <span class="work d-block">Postdoctoral researcher</span>
-            <span class="work d-block">University of São Paulo</span>
-        <div class="mt-2 about">
-        <!-- <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, libero!</span> -->
-            <span class="d-block mt-2">
-                <i class="fa fa-envelope"></i>
-                <a href="mailto: livia.silva.rocha@usp.br" style="color: rgb(139, 133, 133); text-decoration: none">livia.silva.rocha@usp.br</a>
-            </span>
-        </div>
-        </div>
-    </div>
-
-    <div class="d-flex flex-row my-4 mt-4" style="width: 93%; margin-left: auto; margin-right: auto">
-        <div class="mr-3">
-            <img class="photo" src="../images/Norbert.jpeg" alt="Norbert.JPG" >
-        </div>
-        <div class="text-section" style="margin-top: 10px !important">
-            <h5 class="name mb-1">Norbert Wex</h5>
-            <span class="work d-block">Senior staff scientist</span>
-            <span class="work d-block">Max Planck Institute for Radioastronomy</span>
-        <div class="mt-2 about">
-        <!-- <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, libero!</span> -->
-            <span class="d-block mt-2">
-                <i class="fa fa-globe"></i>
-                <a href="https://www3.mpifr-bonn.mpg.de/staff/nwex/" target="_blank"
-                    style="color: rgb(139, 133, 133); text-decoration: none">Personal website</a>
-            </span>
-            <span class="d-block mt-2">
-                <i class="fa fa-envelope"></i>
-                <a href="mailto: wex@mpifr-bonn.mpg.de" style="color: rgb(139, 133, 133); text-decoration: none">wex@mpifr-bonn.mpg.de</a>
-            </span>
-        </div>
-        </div>
-    </div>
-    <div class="d-flex flex-row my-4 mt-4" style="width: 93%; margin-left: auto; margin-right: auto">
-        <div class="mr-3">
-            <img class="photo" src="../images/Paulo.jpeg" alt="Paulo.JPG">
-        </div>
-        <div class="text-section" style="margin-top: 10px !important">
-            <h5 class="name mb-1">Paulo C. C. Freire</h5>
-            <span class="work d-block">Associate researcher</span>
-            <span class="work d-block">Max Planck Institute for Radioastronomy</span>
-        <div class="mt-2 about">
-        <!-- <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, libero!</span> -->
-            <span class="d-block mt-2">
-                <i class="fa fa-globe"></i>
-                <a href="https://www3.mpifr-bonn.mpg.de/staff/pfreire/" target="_blank"
-                    style="color: rgb(139, 133, 133); text-decoration: none">Personal website</a>
-            </span>
-            <span class="d-block mt-2">
-                <i class="fa fa-envelope"></i>
-                <a href="mailto: pfreire@mpifr-bonn.mpg.de" style="color: rgb(139, 133, 133); text-decoration: none">pfreire@mpifr-bonn.mpg.de</a>
-            </span>
-        </div>
-        </div>
-    </div>
-    <div class="d-flex flex-row my-4 mt-4" style="width: 93%; margin-left: auto; margin-right: auto">
-        <div class="mr-3">
-            <img class="photo" src="../images/Thomas.jpeg" alt="Thomas.JPG">
-        </div>
-        <div class="text-section" style="margin-top: 10px !important">
-            <h5 class="name mb-1">Thomas Tauris</h5>
-            <span class="work d-block">Professor</span>
-            <span class="work d-block">Aalborg University</span>
+        <div class="profile-list">
+    <div class="profile-card">
+        <img class="photo" src="/images/foto_jorge.jpg" alt="Jorge Horvath">
+        <div class="text-section">
+            <h5 class="name mb-1">Jorge Horvath</h5>
+            <span class="work d-block">Full Professor</span>
+            <span class="work d-block">IAG - University of São Paulo</span>
             <div class="mt-2 about">
-        <!-- <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga, libero!</span> -->
                 <span class="d-block mt-2">
                     <i class="fa fa-globe"></i>
-                    <a href="https://homes.m-tech.aau.dk/~tauris/" target="_blank"
-                        style="color: rgb(139, 133, 133); text-decoration: none">Personal website</a>
+                    <a href="http://lattes.cnpq.br/2961250776014138" target="_blank" rel="noopener" class="profile-link">CV</a>
                 </span>
                 <span class="d-block mt-2">
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto: tauris@mp.aau.dk"
-                        style="color: rgb(139, 133, 133); text-decoration: none">tauris@mp.aau.dk</a>
+                    <a href="mailto:foton@iag.usp.br" class="profile-link">foton@iag.usp.br</a>
                 </span>
             </div>
         </div>
     </div>
 
-    <button onclick="topFunction()" id="to-top-button" title="To top">Top</button>
-    <div class="footer mt-auto">
-        <footer class="py-3 mt-4">
-            <ul class="nav pb-3 mb-3">
-                <li class="nav-item">
-                    <a href="../index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../html/references.html" class="nav-link">References</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../html/updates.html" class="nav-link">Updates</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">About Us</a>
-                </li>
-            </ul>
-            <p class="text-muted"> &copy; 2023, DoNeutS</p>
-        </footer>
+    <div class="profile-card">
+        <img class="photo" src="/images/foto_marcioAvellar.jpeg" alt="Marcio Avellar" style="object-position: -20% 0;">
+        <div class="text-section">
+            <h5 class="name mb-1">Marcio Guilherme Bronzato de Avellar</h5>
+            <span class="work d-block">Professor</span>
+            <span class="work d-block">National Institute for Space Research</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://lattes.cnpq.br/1729502780176876" target="_blank"
+                        class="profile-link">CV</a>
+                </span>
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:marcio.avellar@inpe.br"
+                        class="profile-link">marcio.avellar@inpe.br</a>
+                </span>
+            </div>
+        </div>
     </div>
 
-    <button onclick="toggleTheme()" id="toggle-theme-button"></button>
-        
+    <div class="profile-card">
+        <img class="photo" src="/images/livia.JPG" alt="Lívia Rocha" style="object-position: -20% 0;">
+        <div class="text-section">
+            <h5 class="name mb-1">Lívia S. Rocha</h5>
+            <span class="work d-block">Postdoctoral researcher</span>
+            <span class="work d-block">University of São Paulo</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://lattes.cnpq.br/3550961800351918" target="_blank"
+                        class="profile-link">CV</a>
+                </span>
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:livia.silva.rocha@usp.br"
+                        class="profile-link">livia.silva.rocha@usp.br</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <img class="photo" src="/images/foto_lucasdesa.jpg" alt="Lucas de Sá">
+        <div class="text-section">
+            <h5 class="name mb-1">Lucas de Sá</h5>
+            <span class="work d-block">Postdoctoral Fellow</span>
+            <span class="work d-block">Universität Heidelberg</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://lattes.cnpq.br/2170942746922128" target="_blank"
+                        class="profile-link">CV</a>
+                </span>
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:lucas.desa@uni-heidelberg.de"
+                        class="profile-link">lucas.desa@uni-heidelberg.de</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <img class="photo" src="/images/foto_nathalia.jpg" alt="Nathalia Pires">
+        <div class="text-section">
+            <h5 class="name mb-1">Nathalia D. Pires</h5>
+            <span class="work d-block">PhD Student</span>
+            <span class="work d-block">IAG - University of São Paulo</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://lattes.cnpq.br/0168514148341022" target="_blank"
+                        class="profile-link">CV</a>
+                </span>
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:nathaliadutrapires@usp.br"
+                        class="profile-link">nathaliadutrapires@usp.br</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <img class="photo" src="/images/bianca.jpeg" alt="Bianca Martins">
+        <div class="text-section">
+            <h5 class="name mb-1">Bianca B. Martins</h5>
+            <span class="work d-block">Masters Student</span>
+            <span class="work d-block">IAG - University of São Paulo</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://lattes.cnpq.br/0392006401035502" target="_blank"
+                        class="profile-link">CV</a>
+                </span>
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:martins.bianca@usp.br"
+                        class="profile-link">martins.bianca@usp.br</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <img class="photo" src="/images/figure_foto_lucasbarao.jpeg" alt="Lucas Barão">
+        <div class="text-section">
+            <h5 class="name mb-1">Lucas G. Barão</h5>
+            <span class="work d-block">Masters Student</span>
+            <span class="work d-block">IAG - University of São Paulo</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://lattes.cnpq.br/3483602534941424" target="_blank"
+                        class="profile-link">CV</a>
+                </span>
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:lucasgbarao@usp.br"
+                        class="profile-link">lucasgbarao@usp.br</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <img class="photo" src="/images/foto_rachel.jpg" alt="Rachel Takahashi">
+        <div class="text-section">
+            <h5 class="name mb-1">Rachel Miwa Takahashi</h5>
+            <span class="work d-block">Undergraduate Student</span>
+            <span class="work d-block">IFUSP - University of São Paulo</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:rachelmiwa@usp.br"
+                        class="profile-link">rachelmiwa@usp.br</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <img class="photo" src="/images/foto_davi.jpg" alt="Davi Vasconcelos">
+        <div class="text-section">
+            <h5 class="name mb-1">Davi Vasconcelos</h5>
+            <span class="work d-block">Undergraduate Student</span>
+            <span class="work d-block">IAG - University of São Paulo</span>
+            <div class="mt-2 about">
+                <span class="d-block mt-2">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:davivasconcelos137@usp.br"
+                        class="profile-link">davivasconcelos137@usp.br</a>
+                </span>
+            </div>
+        </div>
+    </div>
+        </div>
+
+    </main>
+
+    <div class="site-chrome" aria-label="Page tools">
+        <button type="button" onclick="topFunction()" id="to-top-button" title="Back to top">Top</button>
+    </div>
+
+    <!-- @catnoir-footer -->
 
 </body>
 
-<script src="../js/theme.js"></script>
-
-<script src="../js/navbar.js"></script>
-<script>eval(mod_pagespeed_pjbkxWKFfo);</script>
-<script>eval(mod_pagespeed_6H5NR84qUD);</script>
-
-<script>
-    // Get the button
-    let mybutton = document.getElementById('to-top-button');
-
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-</script>
-<script>
-    let counter = 0;
-    function easterEgg() {
-        console.log(counter);
-        if (counter == 5) {
-            $('.toast').toast('show');
-            setTimeout(() => {
-                $('.toast').toast('hide');
-            }, 10000);
-            counter = 0;
-            return;
-        }
-        counter++;
-    }
-</script>
+<script src="/js/theme.js"></script>
 
 </html>

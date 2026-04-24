@@ -1,42 +1,27 @@
 const pcs = { // Plot control selection
   'confirmed': true,
-  'x': 'mp',
-  'y': 'mc'
+  'x': 'P_orb',
+  'y': 'm_bh'
 }
 
 
 const symbols = {
-    'p': '$$ P $$',
-    'pdot': '$$ \\dot{P} $$',
-    'pb': '$$  P_b  $$',
-    'e': '$$ e $$',
-    'f': '$$ f $$',
-    'mt': '$$  M_t  $$',
-    'mp': '$$  M_p  $$',
-    'mc': '$$  M_c  $$',
-    'chirp': '$$  \\mathcal{M} $$', 
-    'delta': '$$ \\delta $$',
-    'chi': '$$  \\chi_f  $$',
-    'chieff': '$$  \\chi_{eff}  $$',
-    'age': '$$  \\tau_c  $$',
-    'tau': '$$  \\tau_{GW}  $$',
-    'dist': '$$ d $$',
-    'l': '$$ l $$',
-    'b': '$$ b $$',
-    'z': '$$ z $$',
-    'mul': '$$ \\mu_l $$',
-    'mub': '$$ \\mu_b $$',
-    'v_t': '$$ v_T^{SSB} $$',
-    'kick_median': '$$ \\omega_{median} $$'
+    'P_orb': '$ P_b $',
+    'K_cp': '$ K_{cp} $',
+    'e': '$ e $',
+    'orb_angle': '$ i $',
+    'q': '$ q $',
+    'm_literat': '$ M_{lit} $',
+    'm_bh': '$ M_{2025} $'
 
 };
 
 
 
 const colors = {
-  'rec': '#9370DB',
-  'nrec': '#3CB371',
-  'GC': '#CD0000',
+  'LMXB': '#cc9900',
+  'HMXB': '#3CB371',
+  'other': '#9370DB',
 }
 
 const transitions = { // miliseconds
@@ -70,89 +55,37 @@ const plotConfig = {
     'axis': defaultAxis,
     'color': defaultColor,
     'units': {
-      'p': {
-        'symbol': 'P\\; \\;',
-        'unit': '(ms)\\; \\;',
+      'P_orb': {
+        'symbol': 'P_{orb}',
+        'unit': '(days)',
       },
-      'pdot': {
-        'symbol': '\\dot{P}\\; \\;',
-        'unit': '(s~s^{-1})\\; \\;',
-      },
-      'pb': {
-        'symbol': '\P_b\\; \\;',
-        'unit': '(days)\\; \\;',
+      'K_cp': {
+        'symbol': 'K_{cp}',
+        'unit': '(km\\,s^{-1})',
       },
       'e': {
-        'symbol': 'e\\; \\;',
-        'unit': ' \\; \\;',
+        'symbol': 'e',
+        'unit': '',
       },
-      'f': {
-        'symbol': 'f\\; \\;',
-        'unit': ' \\; \\;',
+      'orb_angle': {
+        'symbol': 'i',
+        'unit': '(deg)',
       },
-      'mt': {
-        'symbol': 'M_t\\; \\;',
-        'unit': '( M_\\odot )\\; \\;',
+      'q': {
+        'symbol': 'q',
+        'unit': '',
       },
-      'mp': {
-        'symbol': ' M_p \\; \\;',
-        'unit': ' (  M_\\odot )\\; \\;',
+      'm_literat': {
+        'symbol': 'M_{lit}',
+        'unit': '(M_\\odot)',
       },
-      'mc': {
-        'symbol': ' M_c \\; \\;',
-        'unit': '(M_\\odot )\\; \\;',
-      },
-      'chirp': {
-        'symbol': ' \\mathcal{M} \\; \\;',
-        'unit': '(M_\\odot )\\; \\;',
-      },
-      'delta': {
-        'symbol': ' \\delta \\; \\;',
-        'unit': '(deg)\\; \\;',
-      },
-      'chi': {
-        'symbol': ' \\chi_f \\; \\;',
-        'unit': ' \\; \\;',
-      },
-      'chieff': {
-        'symbol': ' \\chi_{eff} \\; \\;',
-        'unit': ' \\; \\;',
-      },
-      'age': {
-        'symbol': ' \\tau_ c \\; \\;',
-        'unit': '(Gyr)\\; \\;',
-      },
-      'tau': {
-        'symbol': ' \\tau_{GW} \\; \\;',
-        'unit': '(Gyr)\\; \\;',
-      },
-      'dist': {
-        'symbol': ' d \\; \\;',
-        'unit': '(kpc)'
-      },
-      'l': {
-        'symbol': ' l \\; \\;',
-        'unit': '(deg)'
-      },
-      'b': {
-        'symbol': ' b \\; \\;',
-        'unit': '(deg)'
-      },
-      'z': {
-        'symbol': ' z \\; \\;',
-        'unit': '(kpc)'
-      },
-      'mul': {
-        'symbol': ' \\mu_l \\; \\;',
-        'unit': '(mas~yr^{-1})'
-      },
-      'mub': {
-        'symbol': ' \\mu_b \\; \\;',
-        'unit': '(mas~yr^{-1})'
+      'm_bh': {
+        'symbol': 'M_{2025}',
+        'unit': '(M_\\odot)',
       },
     }
   },  
-  'p-p': {
+  'P_orb-P_orb': {
     'axis': logarithmicXYAxis
 
   },
