@@ -1507,6 +1507,71 @@ figcaption{
     color: var(--text-muted);
 }
 
+.profile-card .profile-occupation,
+.profile-card .profile-institute {
+    display: block;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+}
+
+.profile-card .profile-occupation {
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.92;
+    margin-top: 0.15rem;
+}
+
+.profile-card .profile-institute {
+    margin-top: 0.2rem;
+}
+
+.profile-card .profile-ids {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.85rem;
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.profile-card .profile-id-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted) !important;
+    text-decoration: none !important;
+    transition: var(--catnoir-transition);
+}
+
+.profile-card .profile-id-link:hover:not(.profile-id-link--pending) {
+    color: var(--highlight-color) !important;
+}
+
+.profile-card .profile-id-link--pending {
+    opacity: 0.38;
+    cursor: default;
+    pointer-events: none;
+}
+
+.profile-card .profile-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.65rem;
+    font-size: 0.8125rem;
+    width: 100%;
+}
+
+.profile-card .profile-email .fa-envelope {
+    opacity: 0.85;
+    flex-shrink: 0;
+}
+
 .profile-card .about {
     display: flex;
     flex-direction: column;

@@ -114,6 +114,31 @@ function addReferences(references, td) {
   }
 }
 
+/** Scalar used for table sorting (nominal value, or midpoint for uniform ranges). */
+function catalogFieldSortNumber(field) {
+  if (!field) return null;
+  var unc = field.uncertainty;
+  var hasUnc = unc && unc.up != null && unc.down != null;
+  if (field.type === 'u') {
+    if (hasUnc) {
+      var lo = parseFloat(unc.down);
+      var hi = parseFloat(unc.up);
+      if (isFinite(lo) && isFinite(hi)) return (lo + hi) / 2;
+    }
+    return null;
+  }
+  if (field.value != null && field.value !== '') {
+    var v = typeof field.value === 'number' ? field.value : parseFloat(field.value);
+    if (isFinite(v)) return v;
+  }
+  return null;
+}
+
+function setNumericDataOrder(td, field) {
+  var n = catalogFieldSortNumber(field);
+  td.setAttribute('data-order', n != null ? String(n) : '');
+}
+
 function fillFieldCell(field, td) {
   var type  = field.type;
   var value = field.value;
@@ -159,6 +184,7 @@ function buildBlackHoleTable() {
 
     // Name
     let tdName = document.createElement('td');
+    tdName.setAttribute('data-order', data.name);
     let divName = document.createElement('div');
     let span = document.createElement('span');
 
@@ -176,6 +202,7 @@ function buildBlackHoleTable() {
 
     // Type 
     let tdType = document.createElement('td');
+    tdType.setAttribute('data-order', data.Type || '');
     tdType.innerHTML = data.Type;
     tdType.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
 
@@ -183,42 +210,49 @@ function buildBlackHoleTable() {
     // Pb (orbital period)
     let tdPb = document.createElement('td');
     fillFieldCell(data.P_orb, tdPb);
+    setNumericDataOrder(tdPb, data.P_orb);
     if (data.P_orb.hasReferences) { addReferences(data.P_orb.references, tdPb); }
     tdPb.setAttribute('style', 'white-space: nowrap');
 
     // K_cp (Companion star radial velocity semi-amplitude)
     let tdKcp = document.createElement('td');
     fillFieldCell(data.K_cp, tdKcp);
+    setNumericDataOrder(tdKcp, data.K_cp);
     if (data.K_cp.hasReferences) { addReferences(data.K_cp.references, tdKcp); }
     tdKcp.setAttribute('style', 'white-space: nowrap');
 
     // e
     let tdE = document.createElement('td');
     fillFieldCell(data.e, tdE);
+    setNumericDataOrder(tdE, data.e);
     if (data.e.hasReferences) { addReferences(data.e.references, tdE); }
     tdE.setAttribute('style', 'white-space: nowrap');
 
     // Orbital inclination
     let tdOrbAng = document.createElement('td');
     fillFieldCell(data.orb_angle, tdOrbAng);
+    setNumericDataOrder(tdOrbAng, data.orb_angle);
     if (data.orb_angle.hasReferences) { addReferences(data.orb_angle.references, tdOrbAng); }
     tdOrbAng.setAttribute('style', 'white-space: nowrap');
 
     // Mass ratio
     let tdQ = document.createElement('td');
     fillFieldCell(data.q, tdQ);
+    setNumericDataOrder(tdQ, data.q);
     if (data.q.hasReferences) { addReferences(data.q.references, tdQ); }
     tdQ.setAttribute('style', 'white-space: nowrap');
 
     // M_lit
     let tdMlit = document.createElement('td');
     fillFieldCell(data.m_literat, tdMlit);
+    setNumericDataOrder(tdMlit, data.m_literat);
     if (data.m_literat.hasReferences) { addReferences(data.m_literat.references, tdMlit); }
     tdMlit.setAttribute('style', 'white-space: nowrap');
 
     // Mbh
     let tdMbh = document.createElement('td');
     fillFieldCell(data.m_bh, tdMbh);
+    setNumericDataOrder(tdMbh, data.m_bh);
     if (data.m_bh.hasReferences) { addReferences(data.m_bh.references, tdMbh); }
     tdMbh.setAttribute('style', 'white-space: nowrap');
 
@@ -254,12 +288,13 @@ function buildSecondTable() {
 
       let tr = document.createElement('tr');
 
-      // Name
-      let tdName = document.createElement('td');
-      let divName = document.createElement('div');
-      let span = document.createElement('span');
-      
-      span.innerHTML = data.name;
+    // Name
+    let tdName = document.createElement('td');
+    tdName.setAttribute('data-order', data.name);
+    let divName = document.createElement('div');
+    let span = document.createElement('span');
+
+    span.innerHTML = data.name;
       divName.appendChild(span);
       tdName.appendChild(divName);
       tdName.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping
