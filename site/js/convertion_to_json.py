@@ -58,6 +58,12 @@ def build_field(mu, sigma_up, sigma_down, dist_type=None):
     value = None if (mu is None or mu == 0) else mu
     symmetrical = sigma_up == sigma_down
 
+    # In the source table, uniform ("u") bounds are stored inverted relative to
+    # our JSON convention (down=lower, up=upper). Normalize here so rendering and
+    # sorting can consistently rely on uncertainty.down/uncertainty.up.
+    if dist_type == "u":
+        sigma_up, sigma_down = sigma_down, sigma_up
+
     return {
         "value": value,
         "type": dist_type,

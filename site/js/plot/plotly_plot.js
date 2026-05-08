@@ -11,6 +11,45 @@ function buildHoverLabel(fieldKey) {
   return meta.hoverLabel || meta.symbol;
 }
 
+function formatFieldMath(field) {
+  if (!field) return '-';
+  var hasValue = typeof field.value === 'number' && Number.isFinite(field.value);
+  var unc = field.uncertainty || {};
+  var hasUnc = typeof unc.up === 'number' && Number.isFinite(unc.up) &&
+               typeof unc.down === 'number' && Number.isFinite(unc.down);
+
+  if (field.type === 'u' && hasUnc) {
+    return 'U(' + unc.down + ', ' + unc.up + ')';
+  }
+
+  if (!hasValue) return '-';
+
+  if ((field.type === 'a' || field.type === 'an') && hasUnc) {
+    return String(field.value) + '<sup>+' + String(unc.up) + '</sup><sub>-' + String(unc.down) + '</sub>';
+  }
+
+  if (field.type === 'n' && hasUnc) {
+    return String(field.value) + '(' + String(unc.up) + ')';
+  }
+
+  return String(field.value);
+}
+
+function bindPlotlyHoverMathJax(el) {
+  if (!el || el.__mathJaxHoverBound) return;
+  el.__mathJaxHoverBound = true;
+  el.on('plotly_hover', function() {
+    if (!window.MathJax) return;
+    var hoverLayer = el.querySelector('.hoverlayer');
+    if (!hoverLayer) return;
+    if (MathJax.typesetPromise) {
+      MathJax.typesetPromise([hoverLayer]).catch(function() {});
+    } else if (MathJax.typeset) {
+      MathJax.typeset([hoverLayer]);
+    }
+  });
+}
+
 function getFilteredData() {
   var data = BlackHoleData;
 
@@ -25,50 +64,235 @@ function getFilteredData() {
 }
 
 function buildPlotlyTraces(data) {
+  function getFieldValueForPlot(field) {
+    if (!field) return null;
+    if (typeof field.value === 'number' && Number.isFinite(field.value)) return field.value;
+    if (field.type !== 'u' || !field.uncertainty) return null;
+    var lower = field.uncertainty.down;
+    var upper = field.uncertainty.up;
+    if (typeof lower !== 'number' || typeof upper !== 'number') return null;
+    if (!Number.isFinite(lower) || !Number.isFinite(upper)) return null;
+    return (lower + upper) / 2;
+  }
+
+  function getFieldUncertainty(field) {
+    if (!field || !field.uncertainty) return null;
+    var center = getFieldValueForPlot(field);
+    if (typeof center !== 'number' || !Number.isFinite(center)) return null;
+    var up = field.uncertainty.up;
+    var down = field.uncertainty.down;
+    if (typeof up !== 'number' || typeof down !== 'number') return null;
+    if (!Number.isFinite(up) || !Number.isFinite(down)) return null;
+
+    if (field.type === 'u') {
+      var lower = down;
+      var upper = up;
+      var plus = upper - center;
+      var minus = center - lower;
+      if (!Number.isFinite(plus) || !Number.isFinite(minus)) return null;
+      if (plus < 0 || minus < 0) return null;
+      return { plus: plus, minus: minus, uniform: true, lower: lower, upper: upper };
+    }
+
+    return { plus: up, minus: down, uniform: false };
+  }
+
   var groups = {};
+  var uniformXSegments = {};
+  var uniformYSegments = {};
+  var regularXSegments = {};
+  var regularYSegments = {};
 
   data.forEach(function(d) {
     var xField = d[plotlyState.x];
     var yField = d[plotlyState.y];
     if (!xField || !yField) return;
 
-    var xVal = xField.value;
-    var yVal = yField.value;
+    var xVal = getFieldValueForPlot(xField);
+    var yVal = getFieldValueForPlot(yField);
     if (xVal == null || yVal == null) return;
     if (typeof xVal !== 'number' || typeof yVal !== 'number') return;
 
+    var xUnc = getFieldUncertainty(xField);
+    var yUnc = getFieldUncertainty(yField);
+    var xIsUniform = xField.type === 'u';
+    var yIsUniform = yField.type === 'u';
+
     var type = d.Type || '';
-    if (!groups[type]) {
-      groups[type] = { x: [], y: [], names: [] };
+    // Draw central marker unless both plotted coordinates are uniform.
+    // If both are uniform, represent the system only by interval segments.
+    if (!(xIsUniform && yIsUniform)) {
+      if (!groups[type]) {
+        groups[type] = {
+          x: [],
+          y: [],
+          names: [],
+        xMath: [],
+        yMath: [],
+          xPlus: [],
+          xMinus: [],
+          yPlus: [],
+          yMinus: [],
+          hasXErr: false,
+          hasYErr: false,
+        };
+      }
+      groups[type].x.push(xVal);
+      groups[type].y.push(yVal);
+      groups[type].names.push(d.name);
+      groups[type].xMath.push(formatFieldMath(xField));
+      groups[type].yMath.push(formatFieldMath(yField));
+      groups[type].xPlus.push(xUnc ? xUnc.plus : 0);
+      groups[type].xMinus.push(xUnc ? xUnc.minus : 0);
+      groups[type].yPlus.push(yUnc ? yUnc.plus : 0);
+      groups[type].yMinus.push(yUnc ? yUnc.minus : 0);
+      groups[type].hasXErr = groups[type].hasXErr || !!xUnc;
+      groups[type].hasYErr = groups[type].hasYErr || !!yUnc;
     }
-    groups[type].x.push(xVal);
-    groups[type].y.push(yVal);
-    groups[type].names.push(d.name);
+
+    if (xUnc && xUnc.uniform) {
+      if (!uniformXSegments[type]) uniformXSegments[type] = { x: [], y: [] };
+      uniformXSegments[type].x.push(xUnc.lower, xUnc.upper, null);
+      uniformXSegments[type].y.push(yVal, yVal, null);
+    } else if (xUnc) {
+      if (!regularXSegments[type]) regularXSegments[type] = { x: [], y: [] };
+      regularXSegments[type].x.push(xVal - xUnc.minus, xVal + xUnc.plus, null);
+      regularXSegments[type].y.push(yVal, yVal, null);
+    }
+    if (yUnc && yUnc.uniform) {
+      if (!uniformYSegments[type]) uniformYSegments[type] = { x: [], y: [] };
+      uniformYSegments[type].x.push(xVal, xVal, null);
+      uniformYSegments[type].y.push(yUnc.lower, yUnc.upper, null);
+    } else if (yUnc) {
+      if (!regularYSegments[type]) regularYSegments[type] = { x: [], y: [] };
+      regularYSegments[type].x.push(xVal, xVal, null);
+      regularYSegments[type].y.push(yVal - yUnc.minus, yVal + yUnc.plus, null);
+    }
   });
 
   var traces = [];
-  Object.keys(groups).forEach(function(type) {
+  var allTypes = new Set(
+    Object.keys(groups)
+      .concat(Object.keys(regularXSegments))
+      .concat(Object.keys(regularYSegments))
+      .concat(Object.keys(uniformXSegments))
+      .concat(Object.keys(uniformYSegments))
+  );
+
+  Array.from(allTypes).forEach(function(type) {
     var g = groups[type];
-    traces.push({
-      x: g.x,
-      y: g.y,
-      text: g.names,
-      mode: 'markers',
-      type: 'scatter',
-      name: typeLabels[type] || type || 'Other',
-      marker: {
-        color: getTypeColors()[type] || '#c084fc',
-        size: 9,
-        opacity: 0.92,
-        line: { width: 1, color: 'rgba(0,0,0,0.35)' },
-      },
-      hovertemplate:
-        '<b>%{text}</b><br>' +
-        '%{fullData.name}<br>' +
-        buildHoverLabel(plotlyState.x) + ': %{x}<br>' +
-        buildHoverLabel(plotlyState.y) + ': %{y}' +
-        '<extra></extra>',
-    });
+    var color = getTypeColors()[type] || '#c084fc';
+    if (g && g.x.length) {
+      traces.push({
+        x: g.x,
+        y: g.y,
+        text: g.names,
+        customdata: g.xMath.map(function(v, i) { return [v, g.yMath[i]]; }),
+        mode: 'markers',
+        type: 'scatter',
+        name: typeLabels[type] || type || 'Other',
+        error_x: {
+          type: 'data',
+          symmetric: false,
+          array: g.xPlus,
+          arrayminus: g.xMinus,
+          visible: g.hasXErr,
+          color: 'rgba(90,90,90,0.85)',
+          thickness: 1.2,
+          width: 2,
+        },
+        error_y: {
+          type: 'data',
+          symmetric: false,
+          array: g.yPlus,
+          arrayminus: g.yMinus,
+          visible: g.hasYErr,
+          color: 'rgba(90,90,90,0.85)',
+          thickness: 1.2,
+          width: 2,
+        },
+        marker: {
+          color: color,
+          size: 9,
+          opacity: 0.92,
+          line: { width: 1, color: 'rgba(0,0,0,0.35)' },
+        },
+        hovertemplate:
+          '<b>%{text}</b><br>' +
+          '%{fullData.name}<br>' +
+          buildHoverLabel(plotlyState.x) + ': %{customdata[0]}<br>' +
+          buildHoverLabel(plotlyState.y) + ': %{customdata[1]}' +
+          '<extra></extra>',
+      });
+    }
+
+    if (regularXSegments[type] && regularXSegments[type].x.length) {
+      traces.push({
+        x: regularXSegments[type].x,
+        y: regularXSegments[type].y,
+        mode: 'lines',
+        type: 'scatter',
+        showlegend: false,
+        hoverinfo: 'skip',
+        line: {
+          color: 'rgba(90,90,90,0.85)',
+          width: 1.2,
+          dash: 'solid',
+        },
+        opacity: 0.9,
+      });
+    }
+
+    if (regularYSegments[type] && regularYSegments[type].x.length) {
+      traces.push({
+        x: regularYSegments[type].x,
+        y: regularYSegments[type].y,
+        mode: 'lines',
+        type: 'scatter',
+        showlegend: false,
+        hoverinfo: 'skip',
+        line: {
+          color: 'rgba(90,90,90,0.85)',
+          width: 1.2,
+          dash: 'solid',
+        },
+        opacity: 0.9,
+      });
+    }
+
+    if (uniformXSegments[type] && uniformXSegments[type].x.length) {
+      traces.push({
+        x: uniformXSegments[type].x,
+        y: uniformXSegments[type].y,
+        mode: 'lines',
+        type: 'scatter',
+        showlegend: false,
+        hoverinfo: 'skip',
+        line: {
+          color: color,
+          width: 1.2,
+          dash: 'solid',
+        },
+        opacity: 0.9,
+      });
+    }
+
+    if (uniformYSegments[type] && uniformYSegments[type].x.length) {
+      traces.push({
+        x: uniformYSegments[type].x,
+        y: uniformYSegments[type].y,
+        mode: 'lines',
+        type: 'scatter',
+        showlegend: false,
+        hoverinfo: 'skip',
+        line: {
+          color: color,
+          width: 1.2,
+          dash: 'solid',
+        },
+        opacity: 0.9,
+      });
+    }
   });
 
   return traces;
@@ -176,6 +400,7 @@ function buildPlotlyPlot() {
   }
 
   Plotly.newPlot(el, traces, layout, plotlyConfig);
+  bindPlotlyHoverMathJax(el);
 }
 
 function updatePlotlyPlot() {
@@ -194,6 +419,7 @@ function updatePlotlyPlot() {
   }
 
   Plotly.react(el, traces, layout, plotlyConfig);
+  bindPlotlyHoverMathJax(el);
 }
 
 function setPlotlyAxis(axis, value) {

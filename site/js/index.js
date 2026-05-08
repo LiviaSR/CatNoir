@@ -48,7 +48,8 @@ function initCatalog(callback) {
 }
 
 function trimZeros(n) {
-  return String(n).replace(/^0+\.0*/, '');
+  var out = String(n).replace(/^0+\.0*/, '');
+  return out === '' ? '0' : out;
 }
 
 //function mergeRows(systemName) {
@@ -146,9 +147,9 @@ function fillFieldCell(field, td) {
   var hasUnc = unc && unc.up != null;
 
   if (type === 'u') {
-    // Uniform distribution: (down, up)
+    // Display in LaTeX inline math as uniform bounds.
     if (hasUnc) {
-      td.innerHTML = '(' + unc.down + ', ' + unc.up + ')';
+      td.innerHTML = '\\({\\cal U} (' + unc.down + ', ' + unc.up + ')\\)';
     } else {
       td.innerHTML = '-';
     }
@@ -157,10 +158,10 @@ function fillFieldCell(field, td) {
     if (hasUnc) {
       if (type === 'n') {
         // Symmetric normal: value(σ)
-        td.innerHTML += '(' + unc.up + ')';
+        td.innerHTML += '(' + trimZeros(unc.up) + ')';
       } else {
-        // Asymmetric normal ('an'): value(+up/-down)
-        td.innerHTML += '(+' + unc.up + '/-' + unc.down + ')';
+        // Asymmetric normal ('a'/'an'): value^{+up}_{-down}
+        td.innerHTML = '\\(' + value + '^{+' + unc.up + '}_{-' + unc.down + '}\\)';
       }
     }
   } else {

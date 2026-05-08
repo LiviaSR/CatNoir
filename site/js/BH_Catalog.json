@@ -1939,8 +1939,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 60.0,
-                "down": 74.0
+                "up": 74.0,
+                "down": 60.0
             },
             "type": "u"
         },
@@ -1949,8 +1949,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.001,
-                "down": 1.0
+                "up": 1.0,
+                "down": 0.001
             },
             "type": "u"
         },
@@ -2101,8 +2101,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.25,
-                "down": 0.31
+                "up": 0.31,
+                "down": 0.25
             },
             "type": "u"
         },
@@ -2111,8 +2111,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 8.45,
-                "down": 10.39
+                "up": 10.39,
+                "down": 8.45
             },
             "type": "u"
         },
@@ -2177,8 +2177,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.01,
-                "down": 0.31
+                "up": 0.31,
+                "down": 0.01
             },
             "type": "u"
         },
@@ -2253,8 +2253,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.02,
-                "down": 0.25
+                "up": 0.25,
+                "down": 0.02
             },
             "type": "u"
         },
@@ -2319,8 +2319,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 50.0,
-                "down": 80.0
+                "up": 80.0,
+                "down": 50.0
             },
             "type": "u"
         },
@@ -2395,8 +2395,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 54.0,
-                "down": 60.0
+                "up": 60.0,
+                "down": 54.0
             },
             "type": "u"
         },
@@ -2415,8 +2415,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 5.5,
-                "down": 8.8
+                "up": 8.8,
+                "down": 5.5
             },
             "type": "u"
         },
@@ -2471,8 +2471,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 60.0,
-                "down": 80.0
+                "up": 80.0,
+                "down": 60.0
             },
             "type": "u"
         },
@@ -2491,8 +2491,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 5.0,
-                "down": 7.4
+                "up": 7.4,
+                "down": 5.0
             },
             "type": "u"
         },
@@ -2547,8 +2547,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 66.0,
-                "down": 81.0
+                "up": 81.0,
+                "down": 66.0
             },
             "type": "u"
         },
@@ -2567,8 +2567,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 5.73,
-                "down": 8.34
+                "up": 8.34,
+                "down": 5.73
             },
             "type": "u"
         },
@@ -2623,8 +2623,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 37.0,
-                "down": 78.0
+                "up": 78.0,
+                "down": 37.0
             },
             "type": "u"
         },
@@ -2643,8 +2643,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 2.3,
-                "down": 9.5
+                "up": 9.5,
+                "down": 2.3
             },
             "type": "u"
         },
@@ -2699,8 +2699,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 60.0,
-                "down": 75.0
+                "up": 75.0,
+                "down": 60.0
             },
             "type": "u"
         },
@@ -2775,8 +2775,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 40.0,
-                "down": 90.0
+                "up": 90.0,
+                "down": 40.0
             },
             "type": "u"
         },
@@ -2851,8 +2851,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 70.0,
-                "down": 80.0
+                "up": 80.0,
+                "down": 70.0
             },
             "type": "u"
         },
@@ -2861,8 +2861,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.02,
-                "down": 0.7
+                "up": 0.7,
+                "down": 0.02
             },
             "type": "u"
         },
@@ -2871,8 +2871,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 3.3,
-                "down": 7.5
+                "up": 7.5,
+                "down": 3.3
             },
             "type": "u"
         },
@@ -2927,8 +2927,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 50.0,
-                "down": 70.0
+                "up": 70.0,
+                "down": 50.0
             },
             "type": "u"
         },
@@ -2937,8 +2937,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.01,
-                "down": 0.5
+                "up": 0.5,
+                "down": 0.01
             },
             "type": "u"
         },
@@ -2947,8 +2947,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 4.0,
-                "down": 7.3
+                "up": 7.3,
+                "down": 4.0
             },
             "type": "u"
         },
@@ -3003,8 +3003,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 33.0,
-                "down": 49.0
+                "up": 49.0,
+                "down": 33.0
             },
             "type": "u"
         },
@@ -3013,8 +3013,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.1,
-                "down": 0.3
+                "up": 0.3,
+                "down": 0.1
             },
             "type": "u"
         },
@@ -3079,8 +3079,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 65.0,
-                "down": 85.0
+                "up": 85.0,
+                "down": 65.0
             },
             "type": "u"
         },
@@ -3089,8 +3089,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.01,
-                "down": 0.2
+                "up": 0.2,
+                "down": 0.01
             },
             "type": "u"
         },
@@ -3155,8 +3155,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 78.0,
-                "down": 90.0
+                "up": 90.0,
+                "down": 78.0
             },
             "type": "u"
         },
@@ -3165,8 +3165,8 @@
             "hasReferences": false,
             "uncertainty": {
                 "symmetrical": false,
-                "up": 0.4749,
-                "down": 1.3756
+                "up": 1.3756,
+                "down": 0.4749
             },
             "type": "u"
         },

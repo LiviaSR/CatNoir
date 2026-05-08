@@ -1,15 +1,22 @@
 const multiXBy = (x, y, multiplier) => {
   let xCopy = _.cloneDeep(x);
   let yCopy = _.cloneDeep(y);
+  const absMultiplier = Math.abs(multiplier);
 
   xCopy = xCopy.map((v) => {
+    const next = {
+      ...v,
+      'value': v.value * multiplier
+    };
+    if (next.uncertainty) {
+      next.uncertainty = {
+        ...next.uncertainty,
+        up: typeof next.uncertainty.up === 'number' ? next.uncertainty.up * absMultiplier : next.uncertainty.up,
+        down: typeof next.uncertainty.down === 'number' ? next.uncertainty.down * absMultiplier : next.uncertainty.down
+      };
+    }
     return({
-      'type': v.type,
-      'value': v.value * multiplier,
-      'name': v.name,
-      'isLimit': v.isLimit,
-      'isAssumed': v.isAssumed,
-      'Confirmed': v.Confirmed
+      ...next
     });
   })
 
@@ -19,15 +26,22 @@ const multiXBy = (x, y, multiplier) => {
 const multiYBy = (x, y, multiplier) => {
   let xCopy = _.cloneDeep(x);
   let yCopy = _.cloneDeep(y);
+  const absMultiplier = Math.abs(multiplier);
 
   yCopy = yCopy.map((v) => {
+    const next = {
+      ...v,
+      'value': v.value * multiplier
+    };
+    if (next.uncertainty) {
+      next.uncertainty = {
+        ...next.uncertainty,
+        up: typeof next.uncertainty.up === 'number' ? next.uncertainty.up * absMultiplier : next.uncertainty.up,
+        down: typeof next.uncertainty.down === 'number' ? next.uncertainty.down * absMultiplier : next.uncertainty.down
+      };
+    }
     return({
-      'type': v.type,
-      'value': v.value * multiplier,
-      'name': v.name,
-      'isLimit': v.isLimit,
-      'isAssumed': v.isAssumed,
-      'Confirmed': v.Confirmed
+      ...next
     });
   })
 
@@ -84,23 +98,15 @@ const absoluteValue = (x, y) => {
 
   xCopy = xCopy.map((v) => {
     return({
-      'type': v.type,
+      ...v,
       'value': Math.abs(v.value),
-      'name': v.name,
-      'isLimit': v.isLimit,
-      'isAssumed': v.isAssumed,
-      'Confirmed': v.Confirmed,
     })
   });
 
   yCopy = yCopy.map((v) => {
     return({
-      'type': v.type,
+      ...v,
       'value': Math.abs(v.value),
-      'name': v.name,
-      'isLimit': v.isLimit,
-      'isAssumed': v.isAssumed,
-      'Confirmed': v.Confirmed
     })
   });
 
