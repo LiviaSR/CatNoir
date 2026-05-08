@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
-import { readFileSync } from 'fs'
+import { readFileSync, cpSync, mkdirSync } from 'fs'
 
 const headPath = resolve(__dirname, 'site/src/partials/head.html')
 const headerPath = resolve(__dirname, 'site/src/partials/header.html')
 const footerPath = resolve(__dirname, 'site/src/partials/footer.html')
+const jsSourcePath = resolve(__dirname, 'site/js')
+const jsOutPath = resolve(__dirname, 'dist/js')
 
 export default defineConfig({
   root: 'site',
@@ -31,6 +33,13 @@ export default defineConfig({
           .replace('<!-- @shared-head -->', sharedHead)
           .replace('<!-- @catnoir-header -->', header)
           .replace('<!-- @catnoir-footer -->', footer)
+      }
+    },
+    {
+      name: 'catnoir:copy-plain-js',
+      closeBundle() {
+        mkdirSync(jsOutPath, { recursive: true })
+        cpSync(jsSourcePath, jsOutPath, { recursive: true })
       }
     }
   ]
