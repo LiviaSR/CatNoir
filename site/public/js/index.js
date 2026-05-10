@@ -34,7 +34,7 @@ function initCatalog(callback) {
           console.error(
             'Hint: JSON is invalid near the NGC 300 X-1 → K_cp block (~line 2434 in a full catalog). ' +
               'Common causes: trailing comma before "}", truncated file, or merge conflict. ' +
-              'Fix: restore site/js/BH_Catalog.json from git or re-run convertion_to_json.py; validate with: python3 -m json.tool site/js/BH_Catalog.json'
+              'Fix: restore site/public/js/BH_Catalog.json from git or re-run convertion_to_json.py; validate with: python3 -m json.tool site/public/js/BH_Catalog.json'
           );
         }
         return;
