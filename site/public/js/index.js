@@ -52,6 +52,53 @@ function trimZeros(n) {
   return out === '' ? '0' : out;
 }
 
+/** Convert a finite number to TeX math body; scientific JS strings become 10^{exp} or m\\times10^{exp}. */
+function numberToTexBody(n) {
+  if (n == null || n === '') return '';
+  var num = typeof n === 'number' ? n : parseFloat(n);
+  if (!Number.isFinite(num)) return String(n);
+  var s = String(num);
+  var m = /^([+-]?\d*\.?\d+)[eE]([+-]?\d+)$/.exec(s);
+  if (!m) return s;
+  var mant = parseFloat(m[1]);
+  var exp = m[2];
+  if (Math.abs(Math.abs(mant) - 1) < 1e-12) {
+    return (mant < 0 ? '-' : '') + '10^{' + exp + '}';
+  }
+  var mantStr = m[1].replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+  return mantStr + '\\times 10^{' + exp + '}';
+}
+
+/** Type n: σ uses trimZeros; if that string is JS scientific (…e…), use TeX 10^{…}. */
+function texSigmaForNormal(uncUp) {
+  var t = trimZeros(uncUp);
+  if (/[eE]/.test(String(t))) return numberToTexBody(parseFloat(t));
+  return t;
+}
+
+/** Wrap TeX body in inline math delimiters for MathJax (SVG output). */
+function mathInline(texBody) {
+  return '\\(' + texBody + '\\)';
+}
+
+function typesetBhCatalogMathJax() {
+  var attempts = 0;
+  function attempt() {
+    var root = document.getElementById('BH-catalogue');
+    if (!root) return;
+    if (!window.MathJax || (!MathJax.typesetPromise && !MathJax.typeset)) {
+      if (++attempts < 60) setTimeout(attempt, 80);
+      return;
+    }
+    if (MathJax.typesetPromise) {
+      MathJax.typesetPromise([root]).catch(function() {});
+    } else {
+      MathJax.typeset([root]);
+    }
+  }
+  attempt();
+}
+
 //function mergeRows(systemName) {
   // Verify if a row with property double-system="systemName" already exists
 //let systemRow = document.querySelectorAll(`[double-system="${systemName}"]`);
@@ -147,25 +194,32 @@ function fillFieldCell(field, td) {
   var hasUnc = unc && unc.up != null;
 
   if (type === 'u') {
-    // Display in LaTeX inline math as uniform bounds.
     if (hasUnc) {
-      td.innerHTML = '\\({\\cal U} (' + unc.down + ', ' + unc.up + ')\\)';
+      td.innerHTML = mathInline(
+        '{\\cal U} (' + numberToTexBody(unc.down) + ', ' + numberToTexBody(unc.up) + ')'
+      );
     } else {
-      td.innerHTML = '-';
+      td.innerHTML = mathInline('-');
     }
   } else if (value != null) {
-    td.innerHTML = value;
     if (hasUnc) {
       if (type === 'n') {
-        // Symmetric normal: value(σ)
-        td.innerHTML += '(' + trimZeros(unc.up) + ')';
+        td.innerHTML = mathInline(numberToTexBody(value) + '(' + texSigmaForNormal(unc.up) + ')');
       } else {
-        // Asymmetric normal ('a'/'an'): value^{+up}_{-down}
-        td.innerHTML = '\\(' + value + '^{+' + unc.up + '}_{-' + unc.down + '}\\)';
+        td.innerHTML = mathInline(
+          numberToTexBody(value) +
+            '^{+' +
+            numberToTexBody(unc.up) +
+            '}_{-' +
+            numberToTexBody(unc.down) +
+            '}'
+        );
       }
+    } else {
+      td.innerHTML = mathInline(numberToTexBody(value));
     }
   } else {
-    td.innerHTML = '-';
+    td.innerHTML = mathInline('-');
   }
 }
 
@@ -275,6 +329,7 @@ function buildBlackHoleTable() {
     tableAnchor.appendChild(tr);
   }
 
+  typesetBhCatalogMathJax();
 }
 
 function buildSecondTable() {

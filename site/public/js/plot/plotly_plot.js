@@ -11,6 +11,23 @@ function buildHoverLabel(fieldKey) {
   return meta.hoverLabel || meta.symbol;
 }
 
+/** HTML fragment: scientific JS strings → ×10<sup>exp</sup> (and mantissa 1 → 10<sup>…</sup>). */
+function numberToHoverHtml(n) {
+  if (n == null || n === '') return '';
+  var num = typeof n === 'number' ? n : parseFloat(n);
+  if (!Number.isFinite(num)) return String(n);
+  var s = String(num);
+  var m = /^([+-]?\d*\.?\d+)[eE]([+-]?\d+)$/.exec(s);
+  if (!m) return s;
+  var mant = parseFloat(m[1]);
+  var exp = m[2];
+  if (Math.abs(Math.abs(mant) - 1) < 1e-12) {
+    return (mant < 0 ? '−' : '') + '10<sup>' + exp + '</sup>';
+  }
+  var mantStr = m[1].replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+  return mantStr + '×10<sup>' + exp + '</sup>';
+}
+
 function formatFieldMath(field) {
   if (!field) return '-';
   var hasValue = typeof field.value === 'number' && Number.isFinite(field.value);
@@ -19,67 +36,49 @@ function formatFieldMath(field) {
                typeof unc.down === 'number' && Number.isFinite(unc.down);
 
   if (field.type === 'u' && hasUnc) {
-    return 'U(' + unc.down + ', ' + unc.up + ')';
+    return (
+      'U(' +
+      numberToHoverHtml(unc.down) +
+      ', ' +
+      numberToHoverHtml(unc.up) +
+      ')'
+    );
   }
 
   if (!hasValue) return '-';
 
   if ((field.type === 'a' || field.type === 'an') && hasUnc) {
-    return String(field.value) + '<sup>+' + String(unc.up) + '</sup><sub>-' + String(unc.down) + '</sub>';
+    return (
+      numberToHoverHtml(field.value) +
+      '<sup>+' +
+      numberToHoverHtml(unc.up) +
+      '</sup><sub>-' +
+      numberToHoverHtml(unc.down) +
+      '</sub>'
+    );
   }
 
   if (field.type === 'n' && hasUnc) {
-    return String(field.value) + '(' + String(unc.up) + ')';
+    return numberToHoverHtml(field.value) + '(' + numberToHoverHtml(unc.up) + ')';
   }
 
-  return String(field.value);
+  return numberToHoverHtml(field.value);
 }
 
 function bindPlotlyHoverMathJax(el) {
   if (!el || el.__mathJaxHoverBound) return;
   el.__mathJaxHoverBound = true;
   el.on('plotly_hover', function() {
+    if (!window.MathJax) return;
+    var hoverLayer = el.querySelector('.hoverlayer');
+    if (!hoverLayer) return;
     requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        expandPlotlyHoverBackground(el);
-        if (!window.MathJax) return;
-        var hoverLayer = el.querySelector('.hoverlayer');
-        if (!hoverLayer) return;
-        if (MathJax.typesetPromise) {
-          MathJax.typesetPromise([hoverLayer]).catch(function() {});
-        } else if (MathJax.typeset) {
-          MathJax.typeset([hoverLayer]);
-        }
-      });
+      if (MathJax.typesetPromise) {
+        MathJax.typesetPromise([hoverLayer]).catch(function() {});
+      } else if (MathJax.typeset) {
+        MathJax.typeset([hoverLayer]);
+      }
     });
-  });
-}
-
-/** Horizontal inset in hover lines (em spaces — Plotly renders as text padding). */
-var HOVER_TEMPLATE_INDENT = '\u2003\u2003\u2003';
-
-/**
- * Plotly does not expose hoverlabel inner padding; scale the SVG background path
- * slightly so the frame sits farther from the text.
- */
-function expandPlotlyHoverBackground(el, scale) {
-  if (!el || !el.querySelectorAll) return;
-  scale = scale == null ? 1.2 : scale;
-  el.querySelectorAll('.hoverlayer g.hovertext').forEach(function(g) {
-    var path = g.querySelector(':scope > path');
-    if (!path) return;
-    try {
-      var bb = path.getBBox();
-      if (!bb.width || !bb.height) return;
-      var cx = bb.x + bb.width / 2;
-      var cy = bb.y + bb.height / 2;
-      path.setAttribute(
-        'transform',
-        'translate(' + cx + ',' + cy + ') scale(' + scale + ') translate(' + (-cx) + ',' + (-cy) + ')'
-      );
-    } catch (e) {
-      /* ignore */
-    }
   });
 }
 
@@ -258,6 +257,7 @@ function buildPlotlyTraces(data) {
   });
 
   var traces = [];
+  var isDarkTheme = localStorage.getItem('theme') !== 'theme-light';
   var allTypes = new Set(
     Object.keys(groups)
       .concat(Object.keys(regularXSegments))
@@ -304,13 +304,22 @@ function buildPlotlyTraces(data) {
           opacity: 0.92,
           line: { width: 1, color: 'rgba(0,0,0,0.35)' },
         },
+        hoverlabel: {
+          bgcolor: isDarkTheme ? '#fffdf8' : '#1a1814',
+          bordercolor: color,
+          font: {
+            color: isDarkTheme ? '#141210' : '#f8f4ec',
+            family: 'Source Sans 3, system-ui, sans-serif',
+            size: 13,
+          },
+          align: 'left',
+        },
         hovertemplate:
-          '<br><br>' +
-          HOVER_TEMPLATE_INDENT + '<b>%{text}</b><br>' +
-          HOVER_TEMPLATE_INDENT + '%{fullData.name}<br><br>' +
-          HOVER_TEMPLATE_INDENT + buildHoverLabel(plotlyState.x) + ': %{customdata[0]}<br>' +
-          HOVER_TEMPLATE_INDENT + buildHoverLabel(plotlyState.y) + ': %{customdata[1]}' +
-          '<br><br><extra></extra>',
+          '<b>%{text}</b><br>' +
+          '%{fullData.name}<br>' +
+          buildHoverLabel(plotlyState.x) + ': %{customdata[0]}<br>' +
+          buildHoverLabel(plotlyState.y) + ': %{customdata[1]}' +
+          '<extra></extra>',
       });
     }
 
@@ -418,30 +427,15 @@ function getPlotlyLayout() {
   var fontColor = isDark ? '#e8e2d9' : '#1a1814';
   var gridColor = isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)';
 
-  // Tooltip: strong contrast vs plot background; gold frame on dark, warm frame on light.
-  var hoverlabelStyle = isDark
-    ? {
-        bgcolor: '#fffdf8',
-        bordercolor: '#e6a817',
-        font: {
-          color: '#141210',
-          family: 'Source Sans 3, system-ui, sans-serif',
-          size: 15,
-        },
-        align: 'left',
-        namelength: -1,
-      }
-    : {
-        bgcolor: '#141210',
-        bordercolor: '#c4922d',
-        font: {
-          color: '#f8f4ec',
-          family: 'Source Sans 3, system-ui, sans-serif',
-          size: 15,
-        },
-        align: 'left',
-        namelength: -1,
-      };
+  // Default hover styling (marker traces set their own border = system type color).
+  var hoverlabelDefaults = {
+    align: 'left',
+    namelength: -1,
+    font: {
+      family: 'Source Sans 3, system-ui, sans-serif',
+      size: 13,
+    },
+  };
 
   // Log axes: D2 = 1–2–5–10 grid; exponentformat not 'power' (avoids 10^n row).
   // 'complete' on minor ticks prints every value (0.002, 0.003, …) → unreadable on
@@ -510,8 +504,8 @@ function getPlotlyLayout() {
     margin: { t: 36, r: 12, b: 52, l: 58 },
     autosize: true,
     hovermode: 'closest',
-    hoverdistance: 28,
-    hoverlabel: hoverlabelStyle,
+    hoverdistance: 44,
+    hoverlabel: hoverlabelDefaults,
   };
 }
 

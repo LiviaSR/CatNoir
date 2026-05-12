@@ -14,7 +14,7 @@ var fieldMeta = {
   orb_angle: { symbol: 'i',         unit: '\\text{deg}',        hoverLabel: 'i (deg)' },
   q:         { symbol: 'q',         unit: '',                   hoverLabel: 'q' },
   m_literat: { symbol: 'M_{lit}',   unit: 'M_\\odot',           hoverLabel: 'M<sub>lit</sub> (M<sub>⊙</sub>)' },
-  m_bh:      { symbol: 'M_{2025}',  unit: 'M_\\odot',           hoverLabel: 'M<sub>2025</sub> (M<sub>⊙</sub>)' },
+  m_bh:      { symbol: 'M_{new}',  unit: 'M_\\odot',           hoverLabel: 'M<sub>new</sub> (M<sub>⊙</sub>)' },
 };
 
 function getTypeColors() {
