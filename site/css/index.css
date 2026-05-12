@@ -601,6 +601,16 @@ table {
     text-underline-offset: 0.15em;
 }
 
+a.catalog-simbad-link {
+    color: inherit;
+    text-decoration: underline dotted;
+    text-underline-offset: 0.15em;
+}
+
+a.catalog-simbad-link:hover {
+    text-decoration-style: solid;
+}
+
 .th-unit {
     display: block;
     text-align: center;

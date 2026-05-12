@@ -81,6 +81,30 @@ function mathInline(texBody) {
   return '\\(' + texBody + '\\)';
 }
 
+/** True if s is a non-empty http(s) URL (safe href for catalogue SIMBAD links). */
+function isSafeCatalogExternalUrl(s) {
+  if (s == null || typeof s !== 'string') return false;
+  var t = s.trim();
+  if (!t) return false;
+  return /^https?:\/\//i.test(t);
+}
+
+/** Fill span with the system name; if data.simbad is set, wrap in a new-tab link. */
+function appendCatalogNameSpan(span, data) {
+  var href = data.simbad != null ? String(data.simbad).trim() : '';
+  if (isSafeCatalogExternalUrl(href)) {
+    var a = document.createElement('a');
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = 'catalog-simbad-link';
+    a.textContent = data.name;
+    span.appendChild(a);
+  } else {
+    span.innerHTML = data.name;
+  }
+}
+
 function typesetBhCatalogMathJax() {
   var attempts = 0;
   function attempt() {
@@ -243,7 +267,7 @@ function buildBlackHoleTable() {
     let divName = document.createElement('div');
     let span = document.createElement('span');
 
-    span.innerHTML = data.name;
+    appendCatalogNameSpan(span, data);
     divName.appendChild(span);
     tdName.appendChild(divName);
     
@@ -350,7 +374,7 @@ function buildSecondTable() {
     let divName = document.createElement('div');
     let span = document.createElement('span');
 
-    span.innerHTML = data.name;
+    appendCatalogNameSpan(span, data);
       divName.appendChild(span);
       tdName.appendChild(divName);
       tdName.setAttribute('style', 'white-space: nowrap') // Prevent references from wrapping

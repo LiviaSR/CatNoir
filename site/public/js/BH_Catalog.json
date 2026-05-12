@@ -1,6 +1,7 @@
 [
     {
         "name": "GRS 1915+105",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GRS+1915%2B105&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -77,6 +78,7 @@
     },
     {
         "name": "GRS 1124-684",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GRS+1124-684&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -153,6 +155,7 @@
     },
     {
         "name": "XTE J1118+480",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=XTE+J1118%2B480&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -229,6 +232,7 @@
     },
     {
         "name": "3A 0620-003",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=3A+0620-003&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -305,6 +309,7 @@
     },
     {
         "name": "MAXI J1305-704",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J1305-704&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -381,6 +386,7 @@
     },
     {
         "name": "GS 2023+338",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GS+2023%2B338&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -457,6 +463,7 @@
     },
     {
         "name": "GRO J1655-40",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GRO+J1655-40&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -533,6 +540,7 @@
     },
     {
         "name": "XTE J1859+226",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=XTE+J1859%2B226&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -609,6 +617,7 @@
     },
     {
         "name": "XTE J1550-564",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=XTE+J1550-564&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -685,6 +694,7 @@
     },
     {
         "name": "SAX J1819.3-2525",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=SAX+J1819.3-2525&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -761,6 +771,7 @@
     },
     {
         "name": "Cyg X-1",
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=Cyg+X-1&submit=submit+id",
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -837,6 +848,7 @@
     },
     {
         "name": "LMC X-1",
+        "simbad": null,
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -913,6 +925,7 @@
     },
     {
         "name": "LMC X-3",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -989,6 +1002,7 @@
     },
     {
         "name": "M33 X-7",
+        "simbad": null,
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -1065,6 +1079,7 @@
     },
     {
         "name": "2MASS J0521+435 cp.",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1141,6 +1156,7 @@
     },
     {
         "name": "GAIA BH1",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1217,6 +1233,7 @@
     },
     {
         "name": "GAIA BH2",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1293,6 +1310,7 @@
     },
     {
         "name": "GAIA BH3",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1369,6 +1387,7 @@
     },
     {
         "name": "HD 130298",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1445,6 +1464,7 @@
     },
     {
         "name": "OGLE-2011-BLG-0462",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Isolated",
         "hasReferences": false,
@@ -1521,6 +1541,7 @@
     },
     {
         "name": "G3425",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1597,6 +1618,7 @@
     },
     {
         "name": "MAXI J0637-430",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1673,6 +1695,7 @@
     },
     {
         "name": "MAXI J1813-095",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1749,6 +1772,7 @@
     },
     {
         "name": "MAXI J1535-571",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1825,6 +1849,7 @@
     },
     {
         "name": "XTE J1746-322",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1901,6 +1926,7 @@
     },
     {
         "name": "Swift J1727.8-1613",
+        "simbad": null,
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -1977,6 +2003,7 @@
     },
     {
         "name": "GRS 1009-45",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2053,6 +2080,7 @@
     },
     {
         "name": "4U 1543-475",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2129,6 +2157,7 @@
     },
     {
         "name": "3A 1524-617",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2205,6 +2234,7 @@
     },
     {
         "name": "GRS 1716-249",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2281,6 +2311,7 @@
     },
     {
         "name": "GS 1354-64",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2357,6 +2388,7 @@
     },
     {
         "name": "GS 2000+251",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2433,6 +2465,7 @@
     },
     {
         "name": "H 1705-250",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2509,6 +2542,7 @@
     },
     {
         "name": "MAXI J1820+070",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2585,6 +2619,7 @@
     },
     {
         "name": "GX 339-4",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2661,6 +2696,7 @@
     },
     {
         "name": "NGC 300 X-1",
+        "simbad": null,
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -2737,6 +2773,7 @@
     },
     {
         "name": "VFTS 243",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -2813,6 +2850,7 @@
     },
     {
         "name": "MAXI J1659-152",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2889,6 +2927,7 @@
     },
     {
         "name": "XTE J1650-500",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2965,6 +3004,7 @@
     },
     {
         "name": "GRO J0422+32",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -3041,6 +3081,7 @@
     },
     {
         "name": "MAXI J1803-298",
+        "simbad": null,
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -3117,6 +3158,7 @@
     },
     {
         "name": "IC10  X-1",
+        "simbad": null,
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,

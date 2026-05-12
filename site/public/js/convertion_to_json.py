@@ -34,6 +34,17 @@ def safe_type(val):
     return None if s in ("", "0", "nan") else s
 
 
+def simbad_from_row(row):
+    """Optional SIMBAD URL from CSV column 'simbad'; None if missing or empty."""
+    if "simbad" not in row.index:
+        return None
+    v = row["simbad"]
+    if pd.isna(v):
+        return None
+    s = str(v).strip()
+    return s if s else None
+
+
 def build_field(mu, sigma_up, sigma_down, dist_type=None):
     """Build a measurement dict with auto-detected symmetry and zero→null mapping."""
     mu = safe_float(mu)
@@ -86,6 +97,7 @@ def row_to_entry(row):
 
     entry = {
         "name": row["name"],
+        "simbad": simbad_from_row(row),
         "Confirmed": True,
         "Type": bh_type,
         "hasReferences": False,
@@ -102,11 +114,31 @@ def row_to_entry(row):
 
 def generate():
     """Fully regenerate BH_Catalog.json from the CSV (overwrites manual edits)."""
-    df = pd.read_csv(CSV_FILE)
-    catalog = [row_to_entry(row) for _, row in df.iterrows()]
+    old_simbad = {}
+    if JSON_FILE.exists():
+        try:
+            with open(JSON_FILE, "r", encoding="utf-8") as f:
+                old_catalog = json.load(f)
+            for e in old_catalog:
+                if not isinstance(e, dict):
+                    continue
+                name = e.get("name")
+                s = e.get("simbad")
+                if name and s and str(s).strip():
+                    old_simbad[name] = str(s).strip()
+        except (json.JSONDecodeError, OSError, TypeError):
+            pass
 
-    with open(JSON_FILE, "w") as f:
-        json.dump(catalog, f, indent=4)
+    df = pd.read_csv(CSV_FILE)
+    catalog = []
+    for _, row in df.iterrows():
+        entry = row_to_entry(row)
+        if not entry.get("simbad") and entry.get("name") in old_simbad:
+            entry["simbad"] = old_simbad[entry["name"]]
+        catalog.append(entry)
+
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump(catalog, f, indent=4, ensure_ascii=False)
 
     print(f"Generated {JSON_FILE.name} with {len(catalog)} entries.")
 
@@ -114,8 +146,8 @@ def generate():
 def patch():
     """
     Patch mode: add/update only the 'type' key inside each parameter block of
-    the existing JSON, without touching references, comments, Type, or any other
-    manually curated data.
+    the existing JSON, without touching references, comments, Type, simbad URLs,
+    or any other manually curated data.
     """
     df = pd.read_csv(CSV_FILE)
 
