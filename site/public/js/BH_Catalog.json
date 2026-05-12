@@ -848,7 +848,7 @@
     },
     {
         "name": "LMC X-1",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=LMC+X-1&submit=submit+id",
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -925,7 +925,7 @@
     },
     {
         "name": "LMC X-3",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=LMC+X-3&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1002,7 +1002,7 @@
     },
     {
         "name": "M33 X-7",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=M33+X-7&submit=submit+id",
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -1156,7 +1156,7 @@
     },
     {
         "name": "GAIA BH1",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=Gaia+DR3+4373465352415301632&submit=submit+id",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1233,7 +1233,7 @@
     },
     {
         "name": "GAIA BH2",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=Gaia+DR3+5870569352746779008&submit=submit+id",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1310,7 +1310,7 @@
     },
     {
         "name": "GAIA BH3",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=Gaia+DR3+4318465066420528000&submit=submit+id",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1387,7 +1387,7 @@
     },
     {
         "name": "HD 130298",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=HD+130298&submit=submit+id",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -1464,7 +1464,7 @@
     },
     {
         "name": "OGLE-2011-BLG-0462",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=OGLE-2011-BLG-0462&submit=submit+id",
         "Confirmed": true,
         "Type": "Isolated",
         "hasReferences": false,
@@ -1541,7 +1541,7 @@
     },
     {
         "name": "G3425",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?bibyear1=1850&bibyear2=%24currentYear&submit=Display&Ident=%4019300032&Name=UCAC4+569-026385&bibdisplay=refsum&bibyear1=1850&bibyear2=%24currentYear#lab_bib",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
