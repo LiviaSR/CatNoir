@@ -1098,8 +1098,27 @@ table.dataTable thead td {
     width: 100% !important;
     min-height: min(68vh, 780px);
     border-radius: var(--catnoir-radius-md);
-    overflow: hidden;
+    /* visible so hover card + shadow are not clipped at rounded corners */
+    overflow: visible;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* Plotly hover: card-like tooltip, readable type, comfortable spacing */
+#plotly-chart .hoverlayer .hovertext {
+    filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.35))
+            drop-shadow(0 2px 8px rgba(0, 0, 0, 0.18));
+}
+
+#plotly-chart .hoverlayer .hovertext > path {
+    stroke-width: 2.25px !important;
+    stroke-linejoin: round !important;
+}
+
+#plotly-chart .hoverlayer .hovertext text {
+    font-family: "Source Sans 3", system-ui, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.02em;
 }
 
 .plot-control-panel {

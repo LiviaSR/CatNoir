@@ -180,8 +180,11 @@ function bindPlotlyControls() {
     btn.addEventListener('click', function() {
       document.querySelectorAll('#plotly-scale-btns button').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      plotlyState.scaleX = btn.dataset.sx;
-      plotlyState.scaleY = btn.dataset.sy;
+      var sx = btn.dataset.sx;
+      var sy = btn.dataset.sy;
+      if (plotlyState.x === 'e' && sx === 'log') sx = 'linear';
+      plotlyState.scaleX = sx;
+      plotlyState.scaleY = sy;
       updatePlotlyPlot();
     });
   });

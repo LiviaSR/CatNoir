@@ -39,14 +39,101 @@ function bindPlotlyHoverMathJax(el) {
   if (!el || el.__mathJaxHoverBound) return;
   el.__mathJaxHoverBound = true;
   el.on('plotly_hover', function() {
-    if (!window.MathJax) return;
-    var hoverLayer = el.querySelector('.hoverlayer');
-    if (!hoverLayer) return;
-    if (MathJax.typesetPromise) {
-      MathJax.typesetPromise([hoverLayer]).catch(function() {});
-    } else if (MathJax.typeset) {
-      MathJax.typeset([hoverLayer]);
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        expandPlotlyHoverBackground(el);
+        if (!window.MathJax) return;
+        var hoverLayer = el.querySelector('.hoverlayer');
+        if (!hoverLayer) return;
+        if (MathJax.typesetPromise) {
+          MathJax.typesetPromise([hoverLayer]).catch(function() {});
+        } else if (MathJax.typeset) {
+          MathJax.typeset([hoverLayer]);
+        }
+      });
+    });
+  });
+}
+
+/** Horizontal inset in hover lines (em spaces — Plotly renders as text padding). */
+var HOVER_TEMPLATE_INDENT = '\u2003\u2003\u2003';
+
+/**
+ * Plotly does not expose hoverlabel inner padding; scale the SVG background path
+ * slightly so the frame sits farther from the text.
+ */
+function expandPlotlyHoverBackground(el, scale) {
+  if (!el || !el.querySelectorAll) return;
+  scale = scale == null ? 1.2 : scale;
+  el.querySelectorAll('.hoverlayer g.hovertext').forEach(function(g) {
+    var path = g.querySelector(':scope > path');
+    if (!path) return;
+    try {
+      var bb = path.getBBox();
+      if (!bb.width || !bb.height) return;
+      var cx = bb.x + bb.width / 2;
+      var cy = bb.y + bb.height / 2;
+      path.setAttribute(
+        'transform',
+        'translate(' + cx + ',' + cy + ') scale(' + scale + ') translate(' + (-cx) + ',' + (-cy) + ')'
+      );
+    } catch (e) {
+      /* ignore */
     }
+  });
+}
+
+/** Compact axis ticks: keep Plotly’s 0.1, 0.2, … 10, 20, … except these bands. */
+var TICK_COMPACT_SCI_MIN = 0.001;
+var TICK_COMPACT_SCI_MAX = 1000;
+
+function parseTickLabelText(text) {
+  var t = String(text).trim().replace(/\u2212/g, '-').replace(/\s+/g, '');
+  if (!t) return Number.NaN;
+  return parseFloat(t.replace(/,/g, ''));
+}
+
+/**
+ * Readable compact scientific: 1e3, 2.5e3, 1e-3 (no + in exponent, trim mantissa).
+ */
+function toCompactScientificTick(v) {
+  if (v === 0) return '0';
+  if (!Number.isFinite(v)) return '';
+  var sign = v < 0 ? '-' : '';
+  var x = Math.abs(v);
+  var exp = Math.floor(Math.log10(x));
+  var man = x / Math.pow(10, exp);
+  var manStr = String(Math.round(man * 1e9) / 1e9);
+  manStr = manStr.replace(/(\.\d*?[1-9])0+$/, '$1');
+  manStr = manStr.replace(/\.0+$/, '');
+  return sign + manStr + 'e' + String(exp);
+}
+
+function applyCompactSciTickLabels(el) {
+  if (!el || !el.querySelectorAll) return;
+  ['x', 'y'].forEach(function(axis) {
+    el.querySelectorAll('.' + axis + 'tick text').forEach(function(node) {
+      var v = parseTickLabelText(node.textContent);
+      if (!Number.isFinite(v)) return;
+      var av = Math.abs(v);
+      if (av >= TICK_COMPACT_SCI_MAX || (av > 0 && av <= TICK_COMPACT_SCI_MIN)) {
+        node.textContent = toCompactScientificTick(v);
+      }
+    });
+  });
+}
+
+function bindPlotlyCompactSciTicks(el) {
+  if (!el || el._catnoirCompactSciTicksBound) return;
+  el._catnoirCompactSciTicksBound = true;
+  el.on('plotly_afterplot', function() {
+    applyCompactSciTickLabels(el);
+  });
+}
+
+function scheduleCompactSciTickLabels(el) {
+  requestAnimationFrame(function() {
+    applyCompactSciTickLabels(el);
   });
 }
 
@@ -218,11 +305,12 @@ function buildPlotlyTraces(data) {
           line: { width: 1, color: 'rgba(0,0,0,0.35)' },
         },
         hovertemplate:
-          '<b>%{text}</b><br>' +
-          '%{fullData.name}<br>' +
-          buildHoverLabel(plotlyState.x) + ': %{customdata[0]}<br>' +
-          buildHoverLabel(plotlyState.y) + ': %{customdata[1]}' +
-          '<extra></extra>',
+          '<br><br>' +
+          HOVER_TEMPLATE_INDENT + '<b>%{text}</b><br>' +
+          HOVER_TEMPLATE_INDENT + '%{fullData.name}<br><br>' +
+          HOVER_TEMPLATE_INDENT + buildHoverLabel(plotlyState.x) + ': %{customdata[0]}<br>' +
+          HOVER_TEMPLATE_INDENT + buildHoverLabel(plotlyState.y) + ': %{customdata[1]}' +
+          '<br><br><extra></extra>',
       });
     }
 
@@ -330,14 +418,59 @@ function getPlotlyLayout() {
   var fontColor = isDark ? '#e8e2d9' : '#1a1814';
   var gridColor = isDark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.1)';
 
-  var logTickAttrs = {
-    dtick: 1,
-    tickmode: 'auto',
-    exponentformat: 'power',
-  };
+  // Tooltip: strong contrast vs plot background; gold frame on dark, warm frame on light.
+  var hoverlabelStyle = isDark
+    ? {
+        bgcolor: '#fffdf8',
+        bordercolor: '#e6a817',
+        font: {
+          color: '#141210',
+          family: 'Source Sans 3, system-ui, sans-serif',
+          size: 15,
+        },
+        align: 'left',
+        namelength: -1,
+      }
+    : {
+        bgcolor: '#141210',
+        bordercolor: '#c4922d',
+        font: {
+          color: '#f8f4ec',
+          family: 'Source Sans 3, system-ui, sans-serif',
+          size: 15,
+        },
+        align: 'left',
+        namelength: -1,
+      };
 
-  var xIsLog = plotlyState.scaleX === 'log';
+  // Log axes: D2 = 1–2–5–10 grid; exponentformat not 'power' (avoids 10^n row).
+  // 'complete' on minor ticks prints every value (0.002, 0.003, …) → unreadable on
+  // shallow ranges (e.g. eccentricity). Use 'small digits' on x: only 2 and 5 between decades.
+  var logTickAttrsCommon = {
+    dtick: 'D2',
+    tickmode: 'auto',
+    exponentformat: 'none',
+    tickformat: '.9~g',
+  };
+  var logTickAttrsX = Object.assign({}, logTickAttrsCommon, {
+    minorloglabels: 'small digits',
+  });
+  var logTickAttrsY = Object.assign({}, logTickAttrsCommon, {
+    minorloglabels: 'complete',
+  });
+
+  // Eccentricity is in [0, 1). Log scale packs that interval into dense minor ticks
+  // (0.002, 0.003, …) — use a linear x-axis for e regardless of the “log–log” preset.
+  var xIsEccentricity = plotlyState.x === 'e';
+  var xAxisType = xIsEccentricity ? 'linear' : plotlyState.scaleX;
+  var xIsLog = xAxisType === 'log';
   var yIsLog = plotlyState.scaleY === 'log';
+
+  var linearEccentricityXAttrs = {
+    tickformat: '.2f',
+    dtick: 0.1,
+    rangemode: 'tozero',
+  };
 
   var axisBase = {
     showline: true,
@@ -355,12 +488,14 @@ function getPlotlyLayout() {
   return {
     xaxis: Object.assign({}, axisBase, {
       title: { text: buildAxisLabel(plotlyState.x) },
-      type: plotlyState.scaleX,
-    }, xIsLog ? logTickAttrs : {}),
+      type: xAxisType,
+    },
+      xIsLog ? logTickAttrsX : {},
+      xIsEccentricity ? linearEccentricityXAttrs : {}),
     yaxis: Object.assign({}, axisBase, {
       title: { text: buildAxisLabel(plotlyState.y) },
       type: plotlyState.scaleY,
-    }, yIsLog ? logTickAttrs : {}),
+    }, yIsLog ? logTickAttrsY : {}),
     plot_bgcolor: bgColor,
     paper_bgcolor: paperColor,
     font: { color: fontColor, family: 'inherit' },
@@ -375,6 +510,8 @@ function getPlotlyLayout() {
     margin: { t: 36, r: 12, b: 52, l: 58 },
     autosize: true,
     hovermode: 'closest',
+    hoverdistance: 28,
+    hoverlabel: hoverlabelStyle,
   };
 }
 
@@ -383,6 +520,17 @@ var plotlyConfig = {
   displaylogo: false,
   modeBarButtonsToRemove: ['select2d', 'lasso2d'],
 };
+
+function syncPlotlyScaleButtonUI() {
+  var group = document.getElementById('plotly-scale-btns');
+  if (!group) return;
+  var sx = plotlyState.scaleX;
+  var sy = plotlyState.scaleY;
+  group.querySelectorAll('button').forEach(function(btn) {
+    var match = btn.dataset.sx === sx && btn.dataset.sy === sy;
+    btn.classList.toggle('active', match);
+  });
+}
 
 function buildPlotlyPlot() {
   var el = document.getElementById('plotly-chart');
@@ -401,6 +549,9 @@ function buildPlotlyPlot() {
 
   Plotly.newPlot(el, traces, layout, plotlyConfig);
   bindPlotlyHoverMathJax(el);
+  bindPlotlyCompactSciTicks(el);
+  scheduleCompactSciTickLabels(el);
+  syncPlotlyScaleButtonUI();
 }
 
 function updatePlotlyPlot() {
@@ -420,10 +571,16 @@ function updatePlotlyPlot() {
 
   Plotly.react(el, traces, layout, plotlyConfig);
   bindPlotlyHoverMathJax(el);
+  bindPlotlyCompactSciTicks(el);
+  scheduleCompactSciTickLabels(el);
+  syncPlotlyScaleButtonUI();
 }
 
 function setPlotlyAxis(axis, value) {
   plotlyState[axis] = value;
+  if (axis === 'x' && value === 'e' && plotlyState.scaleX === 'log') {
+    plotlyState.scaleX = 'linear';
+  }
   updatePlotlyPlot();
 }
 
