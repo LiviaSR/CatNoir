@@ -1618,7 +1618,7 @@
     },
     {
         "name": "MAXI J0637-430",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J0637-430&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1695,7 +1695,7 @@
     },
     {
         "name": "MAXI J1813-095",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J1813-095&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1772,7 +1772,7 @@
     },
     {
         "name": "MAXI J1535-571",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J1535-571&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1849,7 +1849,7 @@
     },
     {
         "name": "XTE J1746-322",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=XTE+J1746-322&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -1926,7 +1926,7 @@
     },
     {
         "name": "Swift J1727.8-1613",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=Swift+J1727.8-1613&submit=submit+id",
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -2003,7 +2003,7 @@
     },
     {
         "name": "GRS 1009-45",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GRS+1009-45&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2080,7 +2080,7 @@
     },
     {
         "name": "4U 1543-475",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=4U+1543-475&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2157,7 +2157,7 @@
     },
     {
         "name": "3A 1524-617",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=3A+1524-617&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2234,7 +2234,7 @@
     },
     {
         "name": "GRS 1716-249",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GRS+1716-249&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2311,7 +2311,7 @@
     },
     {
         "name": "GS 1354-64",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GS+1354-64&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2388,7 +2388,7 @@
     },
     {
         "name": "GS 2000+251",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GS+2000%2B251&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2465,7 +2465,7 @@
     },
     {
         "name": "H 1705-250",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=H+1705-250&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2542,7 +2542,7 @@
     },
     {
         "name": "MAXI J1820+070",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J1820%2B070&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2619,7 +2619,7 @@
     },
     {
         "name": "GX 339-4",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GX+339-4&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2696,7 +2696,7 @@
     },
     {
         "name": "NGC 300 X-1",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=NGC+300+X-1&submit=submit+id",
         "Confirmed": true,
         "Type": "HMXB",
         "hasReferences": false,
@@ -2773,7 +2773,7 @@
     },
     {
         "name": "VFTS 243",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=VFTS+243&submit=submit+id",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
@@ -2850,7 +2850,7 @@
     },
     {
         "name": "MAXI J1659-152",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J1659-152&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -2927,7 +2927,7 @@
     },
     {
         "name": "XTE J1650-500",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=XTE+J1650-500&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -3004,7 +3004,7 @@
     },
     {
         "name": "GRO J0422+32",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=GRO+J0422%2B32&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -3081,7 +3081,7 @@
     },
     {
         "name": "MAXI J1803-298",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=MAXI+J1803-298&submit=submit+id",
         "Confirmed": true,
         "Type": "LMXB",
         "hasReferences": false,
@@ -3158,7 +3158,7 @@
     },
     {
         "name": "IC10  X-1",
-        "simbad": null,
+        "simbad": "https://simbad.cds.unistra.fr/simbad/sim-id?Ident=IC+10++X-1&submit=submit+id",
         "Confirmed": true,
         "Type": "Non-interacting",
         "hasReferences": false,
