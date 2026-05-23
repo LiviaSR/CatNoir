@@ -5,6 +5,7 @@ import sys
 
 import pandas as pd
 from catalog_changelog import record_catalog_changes, sync_changelog_from_disk
+from site_version import bump_patch_cli, load_version
 from pathlib import Path
 
 CSV_FILE = Path(__file__).parent / "BH_parameters_FullSamp.csv"
@@ -283,6 +284,7 @@ def generate():
     print(f"  References from CSV: {refs_from_csv}; JSON fallback: {refs_from_json_fallback}.")
     if changelog_added:
         print(f"  Recorded {changelog_added} catalogue update(s).")
+        print(f"  Site version is now {load_version()}.")
 
 
 def patch():
@@ -327,6 +329,7 @@ def patch():
     print(f"Patched {patched} entries in {JSON_FILE.name}.")
     if changelog_added:
         print(f"  Recorded {changelog_added} catalogue update(s).")
+        print(f"  Site version is now {load_version()}.")
     if unmatched:
         print(f"No CSV match for {len(unmatched)} entries:")
         for n in unmatched:
@@ -334,7 +337,11 @@ def patch():
 
 
 if __name__ == "__main__":
-    if "--changelog" in sys.argv:
+    if "--bump-patch" in sys.argv:
+        idx = sys.argv.index("--bump-patch")
+        msg = " ".join(sys.argv[idx + 1 :]).strip() or None
+        bump_patch_cli(msg)
+    elif "--changelog" in sys.argv:
         sync_changelog_from_disk()
     elif "--patch" in sys.argv:
         patch()

@@ -2,7 +2,7 @@
   "name": "catnoir",
   "private": true,
   "version": "1.0.0",
-  "description": "CatNoir — A living catalogue of galactic black holes",
+  "description": "CatNoir \u2026 A living catalogue of galactic black holes",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

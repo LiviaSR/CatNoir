@@ -174,7 +174,12 @@ def diff_catalogs(
     return messages
 
 
-def append_updates(messages: list[str], day: str | None = None) -> int:
+def append_updates(
+    messages: list[str],
+    day: str | None = None,
+    *,
+    bump_minor: bool = False,
+) -> int:
     if not messages:
         return 0
     day = day or format_date()
@@ -190,7 +195,23 @@ def append_updates(messages: list[str], day: str | None = None) -> int:
         added += 1
     if added:
         save_updates(entries)
+        if bump_minor:
+            _bump_catalogue_minor_version(day)
     return added
+
+
+def _bump_catalogue_minor_version(day: str | None = None) -> str:
+    """Bump MINOR (catalogue data) and add a release line to the updates log."""
+    from site_version import bump_version
+
+    day = day or format_date()
+    new_v = bump_version("minor")
+    release_msg = f"Catalogue release version {new_v}"
+    entries = load_updates()
+    if not any(e.get("message") == release_msg for e in entries):
+        entries.insert(0, {"date": day, "message": release_msg})
+        save_updates(entries)
+    return new_v
 
 
 def record_catalog_changes(
@@ -199,12 +220,13 @@ def record_catalog_changes(
     """
     Compare old vs new catalogue, append update lines, refresh snapshot.
     If old_catalog is None (no prior JSON), only create snapshot — no auto entries.
+    On data changes, bumps site MINOR version (e.g. 1.0.0 → 1.1.0).
     """
     save_snapshot(new_catalog)
     if old_catalog is None:
         return 0
     messages = diff_catalogs(old_catalog, new_catalog)
-    return append_updates(messages)
+    return append_updates(messages, bump_minor=True)
 
 
 def sync_changelog_from_disk() -> int:
@@ -224,8 +246,10 @@ def sync_changelog_from_disk() -> int:
         return 0
     n = record_catalog_changes(old_catalog, new_catalog)
     if n:
+        from site_version import load_version
+
         print(f"Recorded {n} update(s) in {UPDATES_FILE.name}.")
+        print(f"  Site version is now {load_version()}.")
     else:
         print("No catalogue changes detected.")
-        # Snapshot already updated in record_catalog_changes
     return n
