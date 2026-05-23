@@ -1,7 +1,10 @@
-import pandas as pd
+import copy
 import json
 import math
 import sys
+
+import pandas as pd
+from catalog_changelog import record_catalog_changes, sync_changelog_from_disk
 from pathlib import Path
 
 CSV_FILE = Path(__file__).parent / "BH_parameters_FullSamp.csv"
@@ -17,6 +20,11 @@ FIELDS = [
     ("m_literat", "mbh_mu",   "mbh_sigma_plus",    "mbh_sigma_minus",  "type_m"),
     ("m_bh",      "m_new_mu", "m_new_sigma_plus",  "m_new_sigma_minus","type_mnew"),
 ]
+
+ENTRY_HEADER_KEYS = ("name", "simbad", "Confirmed", "Type")
+
+# System-level bibliography columns in BH_parameters_FullSamp.csv
+REF_LINK_COLUMNS = ("ref_1", "ref_2", "ref_3")
 
 
 def safe_float(val):
@@ -43,6 +51,127 @@ def simbad_from_row(row):
         return None
     s = str(v).strip()
     return s if s else None
+
+
+def references_from_row(row):
+    """
+    Build system-level references from ref_N (link) and ref_N_descrip columns.
+    """
+    refs = []
+    for link_col in REF_LINK_COLUMNS:
+        if link_col not in row.index:
+            continue
+        link_val = row[link_col]
+        if pd.isna(link_val) or not str(link_val).strip():
+            continue
+        link_s = str(link_val).strip()
+        desc_col = f"{link_col}_descrip"
+        descrip = ""
+        if desc_col in row.index and not pd.isna(row.get(desc_col)):
+            descrip = str(row[desc_col]).strip()
+        refs.append({"link": link_s, "descrip": descrip})
+    return refs if refs else None
+
+
+def system_references_from_entry(entry):
+    """
+    Extract system-level references from a catalogue object.
+    Each item must have 'link' and 'descrip' (as used by the webpage).
+    """
+    if not isinstance(entry, dict):
+        return None
+    refs = entry.get("references")
+    if not isinstance(refs, list):
+        return None
+    out = []
+    for r in refs:
+        if not isinstance(r, dict):
+            continue
+        link = r.get("link")
+        descrip = r.get("descrip")
+        if link is None or descrip is None:
+            continue
+        link_s = str(link).strip()
+        descrip_s = str(descrip).strip()
+        if link_s and descrip_s:
+            out.append({"link": link_s, "descrip": descrip_s})
+    return out if out else None
+
+
+def apply_system_references(entry, references):
+    """Attach or clear system-level references on a catalogue entry."""
+    if references:
+        entry["hasReferences"] = True
+        entry["references"] = references
+    else:
+        entry["hasReferences"] = False
+        entry.pop("references", None)
+
+
+def order_entry(entry):
+    """Stable key order: header, references, parameter blocks, then any extras."""
+    ordered = {}
+    for k in ENTRY_HEADER_KEYS:
+        if k in entry:
+            ordered[k] = entry[k]
+    ordered["hasReferences"] = entry.get("hasReferences", False)
+    if ordered["hasReferences"] and entry.get("references"):
+        ordered["references"] = entry["references"]
+    for field_name, *_ in FIELDS:
+        if field_name in entry:
+            ordered[field_name] = entry[field_name]
+    for k, v in entry.items():
+        if k not in ordered:
+            ordered[k] = v
+    return ordered
+
+
+def load_existing_catalog():
+    """Load current BH_Catalog.json before overwrite, or None if missing."""
+    if not JSON_FILE.exists():
+        return None
+    try:
+        with open(JSON_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError, TypeError):
+        return None
+    return data if isinstance(data, list) else None
+
+
+def load_preserved_manual_fields():
+    """
+    Load manually curated simbad URLs and system references by source name
+    from the existing BH_Catalog.json (read before regenerate overwrites it).
+    """
+    simbad_by_name = {}
+    refs_by_name = {}
+
+    if not JSON_FILE.exists():
+        return simbad_by_name, refs_by_name
+
+    try:
+        with open(JSON_FILE, encoding="utf-8") as f:
+            catalog = json.load(f)
+    except (json.JSONDecodeError, OSError, TypeError):
+        return simbad_by_name, refs_by_name
+
+    if not isinstance(catalog, list):
+        return simbad_by_name, refs_by_name
+
+    for e in catalog:
+        if not isinstance(e, dict):
+            continue
+        name = e.get("name")
+        if not name:
+            continue
+        s = e.get("simbad")
+        if s and str(s).strip():
+            simbad_by_name[name] = str(s).strip()
+        refs = system_references_from_entry(e)
+        if refs:
+            refs_by_name[name] = refs
+
+    return simbad_by_name, refs_by_name
 
 
 def build_field(mu, sigma_up, sigma_down, dist_type=None):
@@ -109,38 +238,51 @@ def row_to_entry(row):
             safe_type(row[type_col])
         )
 
+    refs = references_from_row(row)
+    if refs:
+        apply_system_references(entry, refs)
+
     return entry
 
 
 def generate():
-    """Fully regenerate BH_Catalog.json from the CSV (overwrites manual edits)."""
-    old_simbad = {}
-    if JSON_FILE.exists():
-        try:
-            with open(JSON_FILE, "r", encoding="utf-8") as f:
-                old_catalog = json.load(f)
-            for e in old_catalog:
-                if not isinstance(e, dict):
-                    continue
-                name = e.get("name")
-                s = e.get("simbad")
-                if name and s and str(s).strip():
-                    old_simbad[name] = str(s).strip()
-        except (json.JSONDecodeError, OSError, TypeError):
-            pass
+    """
+    Fully regenerate BH_Catalog.json from the CSV.
+
+    Numeric fields and system references come from BH_parameters_FullSamp.csv.
+    SIMBAD URLs are preserved from the existing BH_Catalog.json when absent in CSV.
+    References missing in the CSV but present in JSON are kept as a fallback.
+    """
+    old_catalog = load_existing_catalog()
+    simbad_by_name, refs_by_name = load_preserved_manual_fields()
 
     df = pd.read_csv(CSV_FILE)
     catalog = []
+    refs_from_csv = 0
+    refs_from_json_fallback = 0
     for _, row in df.iterrows():
         entry = row_to_entry(row)
-        if not entry.get("simbad") and entry.get("name") in old_simbad:
-            entry["simbad"] = old_simbad[entry["name"]]
-        catalog.append(entry)
+        name = entry["name"]
+        if not entry.get("simbad") and name in simbad_by_name:
+            entry["simbad"] = simbad_by_name[name]
+        if entry.get("hasReferences"):
+            refs_from_csv += 1
+        elif name in refs_by_name:
+            apply_system_references(entry, refs_by_name[name])
+            refs_from_json_fallback += 1
+        catalog.append(order_entry(entry))
+
+    changelog_added = record_catalog_changes(old_catalog, catalog)
 
     with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(catalog, f, indent=4, ensure_ascii=False)
+        f.write("\n")
 
     print(f"Generated {JSON_FILE.name} with {len(catalog)} entries.")
+    print(f"  Preserved SIMBAD URLs for {len(simbad_by_name)} sources.")
+    print(f"  References from CSV: {refs_from_csv}; JSON fallback: {refs_from_json_fallback}.")
+    if changelog_added:
+        print(f"  Recorded {changelog_added} catalogue update(s).")
 
 
 def patch():
@@ -163,6 +305,8 @@ def patch():
     with open(JSON_FILE, "r", encoding="utf-8") as f:
         catalog = json.load(f)
 
+    old_catalog = copy.deepcopy(catalog)
+
     patched, unmatched = 0, []
     for entry in catalog:
         name = entry.get("name", "")
@@ -174,10 +318,15 @@ def patch():
                 entry[field_name]["type"] = dist_type
         patched += 1
 
+    changelog_added = record_catalog_changes(old_catalog, catalog)
+
     with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(catalog, f, indent=4, ensure_ascii=False)
+        f.write("\n")
 
     print(f"Patched {patched} entries in {JSON_FILE.name}.")
+    if changelog_added:
+        print(f"  Recorded {changelog_added} catalogue update(s).")
     if unmatched:
         print(f"No CSV match for {len(unmatched)} entries:")
         for n in unmatched:
@@ -185,7 +334,9 @@ def patch():
 
 
 if __name__ == "__main__":
-    if "--patch" in sys.argv:
+    if "--changelog" in sys.argv:
+        sync_changelog_from_disk()
+    elif "--patch" in sys.argv:
         patch()
     else:
         generate()
