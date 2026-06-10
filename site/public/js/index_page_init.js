@@ -227,6 +227,7 @@ function initCatalogPage() {
     buildPlotlyAxisControls();
     buildPlotlyPlot();
     bindPlotlyControls();
+    initCatalogDownload();
   });
 }
 

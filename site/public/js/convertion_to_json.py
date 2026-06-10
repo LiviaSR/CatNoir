@@ -24,7 +24,7 @@ FIELDS = [
 
 ENTRY_HEADER_KEYS = ("name", "simbad", "Confirmed", "Type")
 
-# System-level bibliography columns in BH_parameters_FullSamp.csv
+# Reference URLs in CSV (citation text / descrip stays in BH_Catalog.json only)
 REF_LINK_COLUMNS = ("ref_1", "ref_2", "ref_3")
 
 
@@ -43,21 +43,9 @@ def safe_type(val):
     return None if s in ("", "0", "nan") else s
 
 
-def simbad_from_row(row):
-    """Optional SIMBAD URL from CSV column 'simbad'; None if missing or empty."""
-    if "simbad" not in row.index:
-        return None
-    v = row["simbad"]
-    if pd.isna(v):
-        return None
-    s = str(v).strip()
-    return s if s else None
-
-
-def references_from_row(row):
-    """
-    Build system-level references from ref_N (link) and ref_N_descrip columns.
-    """
+def references_from_row(row, descrip_by_link=None):
+    """Build references from CSV link columns; descrip from existing JSON when provided."""
+    descrip_by_link = descrip_by_link or {}
     refs = []
     for link_col in REF_LINK_COLUMNS:
         if link_col not in row.index:
@@ -66,12 +54,19 @@ def references_from_row(row):
         if pd.isna(link_val) or not str(link_val).strip():
             continue
         link_s = str(link_val).strip()
-        desc_col = f"{link_col}_descrip"
-        descrip = ""
-        if desc_col in row.index and not pd.isna(row.get(desc_col)):
-            descrip = str(row[desc_col]).strip()
-        refs.append({"link": link_s, "descrip": descrip})
+        refs.append({"link": link_s, "descrip": descrip_by_link.get(link_s, "")})
     return refs if refs else None
+
+
+def descrip_map_from_references(refs):
+    """Map link URL → citation text for merging CSV links with JSON descriptions."""
+    if not refs:
+        return {}
+    return {
+        str(r["link"]).strip(): str(r.get("descrip", "")).strip()
+        for r in refs
+        if isinstance(r, dict) and r.get("link")
+    }
 
 
 def system_references_from_entry(entry):
@@ -146,18 +141,19 @@ def load_preserved_manual_fields():
     """
     simbad_by_name = {}
     refs_by_name = {}
+    descrip_by_name = {}
 
     if not JSON_FILE.exists():
-        return simbad_by_name, refs_by_name
+        return simbad_by_name, refs_by_name, descrip_by_name
 
     try:
         with open(JSON_FILE, encoding="utf-8") as f:
             catalog = json.load(f)
     except (json.JSONDecodeError, OSError, TypeError):
-        return simbad_by_name, refs_by_name
+        return simbad_by_name, refs_by_name, descrip_by_name
 
     if not isinstance(catalog, list):
-        return simbad_by_name, refs_by_name
+        return simbad_by_name, refs_by_name, descrip_by_name
 
     for e in catalog:
         if not isinstance(e, dict):
@@ -171,8 +167,9 @@ def load_preserved_manual_fields():
         refs = system_references_from_entry(e)
         if refs:
             refs_by_name[name] = refs
+            descrip_by_name[name] = descrip_map_from_references(refs)
 
-    return simbad_by_name, refs_by_name
+    return simbad_by_name, refs_by_name, descrip_by_name
 
 
 def build_field(mu, sigma_up, sigma_down, dist_type=None):
@@ -217,7 +214,7 @@ def build_field(mu, sigma_up, sigma_down, dist_type=None):
     }
 
 
-def row_to_entry(row):
+def row_to_entry(row, descrip_by_link=None):
     """Convert a single CSV row into a catalog JSON entry."""
     type_val = row["Type"]
     if pd.isna(type_val) or type_val == 0 or str(type_val).strip() == "0":
@@ -227,7 +224,7 @@ def row_to_entry(row):
 
     entry = {
         "name": row["name"],
-        "simbad": simbad_from_row(row),
+        "simbad": None,
         "Confirmed": True,
         "Type": bh_type,
         "hasReferences": False,
@@ -239,7 +236,7 @@ def row_to_entry(row):
             safe_type(row[type_col])
         )
 
-    refs = references_from_row(row)
+    refs = references_from_row(row, descrip_by_link)
     if refs:
         apply_system_references(entry, refs)
 
@@ -250,27 +247,26 @@ def generate():
     """
     Fully regenerate BH_Catalog.json from the CSV.
 
-    Numeric fields and system references come from BH_parameters_FullSamp.csv.
-    SIMBAD URLs are preserved from the existing BH_Catalog.json when absent in CSV.
-    References missing in the CSV but present in JSON are kept as a fallback.
+    Parameters, system Type, and reference links come from BH_parameters_FullSamp.csv.
+    SIMBAD URLs and reference descriptions (descrip) are preserved from BH_Catalog.json.
     """
     old_catalog = load_existing_catalog()
-    simbad_by_name, refs_by_name = load_preserved_manual_fields()
+    simbad_by_name, refs_by_name, descrip_by_name = load_preserved_manual_fields()
 
     df = pd.read_csv(CSV_FILE)
     catalog = []
     refs_from_csv = 0
-    refs_from_json_fallback = 0
+    refs_fallback = 0
     for _, row in df.iterrows():
-        entry = row_to_entry(row)
-        name = entry["name"]
-        if not entry.get("simbad") and name in simbad_by_name:
+        name = row["name"]
+        entry = row_to_entry(row, descrip_by_name.get(name, {}))
+        if name in simbad_by_name:
             entry["simbad"] = simbad_by_name[name]
         if entry.get("hasReferences"):
             refs_from_csv += 1
         elif name in refs_by_name:
             apply_system_references(entry, refs_by_name[name])
-            refs_from_json_fallback += 1
+            refs_fallback += 1
         catalog.append(order_entry(entry))
 
     changelog_added = record_catalog_changes(old_catalog, catalog)
@@ -281,7 +277,7 @@ def generate():
 
     print(f"Generated {JSON_FILE.name} with {len(catalog)} entries.")
     print(f"  Preserved SIMBAD URLs for {len(simbad_by_name)} sources.")
-    print(f"  References from CSV: {refs_from_csv}; JSON fallback: {refs_from_json_fallback}.")
+    print(f"  References from CSV: {refs_from_csv}; JSON descrip fallback: {refs_fallback}.")
     if changelog_added:
         print(f"  Recorded {changelog_added} catalogue update(s).")
         print(f"  Site version is now {load_version()}.")

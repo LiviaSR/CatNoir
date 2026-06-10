@@ -1,5 +1,7 @@
 site/.vscode/
 site/refs.bib
+.DS_Store
+old_scripts.txt
 push.sh
 
 # Vite / Node

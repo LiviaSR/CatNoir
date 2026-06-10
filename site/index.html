@@ -138,10 +138,30 @@
         </table>
       </div>
 
-      <div class="text-section">
-        <p>
-          To download the complete dataset please click <a href="./table.csv">here</a>.
+      <div id="catalog-download" class="page-section-lg">
+        <h5 id="catalog-download-heading">Download catalogue data</h5>
+      </div>
+      <div class="text-section catalog-download" aria-labelledby="catalog-download-heading">
+        <p class="catalog-download__lead">
+          Select the format to download the catalogue data.
         </p>
+        <div class="catalog-download__panel">
+          <div class="catalog-download__field">
+            <label class="catalog-download__label" for="catalog-download-format">Format</label>
+            <select id="catalog-download-format" class="catalog-download__select form-select form-select-sm">
+              <option value="json">JSON (.json)</option>
+              <option value="csv">CSV (.csv)</option>
+            </select>
+          </div>
+          <button
+            type="button"
+            id="catalog-download-btn"
+            class="btn catalog-download__btn"
+            disabled
+          >
+            Download
+          </button>
+        </div>
       </div>
 
 
@@ -239,6 +259,7 @@
       <!-- @catnoir-footer -->
     </body>
 
+    <script src="/js/catalog_download.js"></script>
     <script src="/js/index_page_init.js"></script>
 
     <script>
