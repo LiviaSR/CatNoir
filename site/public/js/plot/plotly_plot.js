@@ -130,7 +130,9 @@ function toCompactScientificTick(v) {
 
 function applyCompactSciTickLabels(el) {
   if (!el || !el.querySelectorAll) return;
+  var skipY = plotlyState.y === 'e';
   ['x', 'y'].forEach(function(axis) {
+    if (axis === 'y' && skipY) return;
     el.querySelectorAll('.' + axis + 'tick text').forEach(function(node) {
       var v = parseTickLabelText(node.textContent);
       if (!Number.isFinite(v)) return;
@@ -153,6 +155,76 @@ function bindPlotlyCompactSciTicks(el) {
 function scheduleCompactSciTickLabels(el) {
   requestAnimationFrame(function() {
     applyCompactSciTickLabels(el);
+    thinEccentricityLogYTicks(el);
+  });
+}
+
+/** Decade tick positions for eccentricity on a log y-axis (e ∈ (0, 1)). */
+function getEccentricityLogYTickvals() {
+  var data = getFilteredData();
+  var vals = [];
+  data.forEach(function(d) {
+    var f = d.e;
+    if (!f) return;
+    if (typeof f.value === 'number' && f.value > 0) vals.push(f.value);
+    if (f.type === 'u' && f.uncertainty) {
+      var lo = f.uncertainty.down;
+      var hi = f.uncertainty.up;
+      if (typeof lo === 'number' && lo > 0) vals.push(lo);
+      if (typeof hi === 'number' && hi > 0) vals.push(hi);
+    }
+  });
+  var minVal = vals.length ? Math.min.apply(null, vals) : 0.001;
+  var maxVal = vals.length ? Math.max.apply(null, vals) : 1;
+  var loPow = Math.floor(Math.log10(Math.max(minVal * 0.8, 1e-4)));
+  var hiPow = Math.ceil(Math.log10(Math.min(maxVal * 1.2, 0.9999)));
+  if (hiPow > 0) hiPow = 0;
+  if (loPow < -4) loPow = -4;
+  var tickvals = [];
+  for (var p = loPow; p <= hiPow; p++) tickvals.push(Math.pow(10, p));
+  return tickvals.length >= 2 ? tickvals : [0.001, 0.01, 0.1, 1];
+}
+
+function getEccentricityLogYAxisAttrs() {
+  return {
+    tickmode: 'array',
+    tickvals: getEccentricityLogYTickvals(),
+    exponentformat: 'none',
+    showexponent: 'none',
+    tickformat: '.0g',
+    minorloglabels: 'none',
+    minor: {
+      ticks: '',
+      ticklen: 0,
+    },
+  };
+}
+
+/** Hide y tick labels whose bounding boxes overlap (fallback for crowded log-e axis). */
+function thinEccentricityLogYTicks(el) {
+  if (!el || plotlyState.y !== 'e' || plotlyState.scaleY !== 'log') return;
+  var nodes = Array.prototype.slice.call(el.querySelectorAll('.ytick text'));
+  if (nodes.length < 2) return;
+  nodes.sort(function(a, b) {
+    return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+  });
+  var lastBottom = -Infinity;
+  nodes.forEach(function(node) {
+    var rect = node.getBoundingClientRect();
+    if (rect.top < lastBottom - 1) {
+      node.style.visibility = 'hidden';
+    } else {
+      node.style.visibility = '';
+      lastBottom = rect.bottom;
+    }
+  });
+}
+
+function bindEccentricityLogYTickThinning(el) {
+  if (!el || el._catnoirEccLogYTicksBound) return;
+  el._catnoirEccLogYTicksBound = true;
+  el.on('plotly_afterplot', function() {
+    thinEccentricityLogYTicks(el);
   });
 }
 
@@ -479,12 +551,10 @@ function getPlotlyLayout() {
   var xIsLog = xAxisType === 'log';
   var yIsLog = yAxisType === 'log';
 
-  // e ∈ [0, 1): D2 (1–2–5–10) still crowds a log axis — use decade ticks only.
-  var logTickAttrsYForField = Object.assign({}, logTickAttrsCommon,
-    yIsEccentricity
-      ? { dtick: 'D1', minorloglabels: 'none', tickformat: '.2~g' }
-      : { minorloglabels: 'complete' }
-  );
+  // e on log y: do not inherit D2/auto ticks — use explicit decade tickvals only.
+  var logTickAttrsYForField = yIsEccentricity && yIsLog
+    ? getEccentricityLogYAxisAttrs()
+    : Object.assign({}, logTickAttrsCommon, { minorloglabels: 'complete' });
 
   var linearEccentricityAttrs = {
     tickformat: '.2f',
@@ -574,6 +644,7 @@ function buildPlotlyPlot() {
   Plotly.newPlot(el, traces, layout, plotlyConfig);
   bindPlotlyHoverMathJax(el);
   bindPlotlyCompactSciTicks(el);
+  bindEccentricityLogYTickThinning(el);
   scheduleCompactSciTickLabels(el);
   syncPlotlyScaleButtonUI();
 }
@@ -596,6 +667,7 @@ function updatePlotlyPlot() {
   Plotly.react(el, traces, layout, plotlyConfig);
   bindPlotlyHoverMathJax(el);
   bindPlotlyCompactSciTicks(el);
+  bindEccentricityLogYTickThinning(el);
   scheduleCompactSciTickLabels(el);
   syncPlotlyScaleButtonUI();
 }
