@@ -900,9 +900,9 @@ table.dataTable thead td {
 }
 
 .plot-controls-dock {
-    flex: 1 1 0;
-    min-width: 0;
-    padding: 1.5rem 1.1rem 1.5rem;
+    flex: 2 1 0;
+    min-width: clamp(260px, 30vw, 360px);
+    padding: 1.5rem 1.25rem 1.5rem;
     background: linear-gradient(
         180deg,
         color-mix(in srgb, var(--secondary-color) 92%, var(--highlight-muted)) 0%,
@@ -1103,16 +1103,16 @@ table.dataTable thead td {
 }
 
 .plotly-chart-wrap {
-    flex: 2 1 0;
+    flex: 3 1 0;
     min-width: 0;
-    min-height: min(72vh, 820px);
-    padding: 0.85rem clamp(0.5rem, 2vw, 1.25rem) 1.75rem;
+    min-height: min(76vh, 860px);
+    padding: 0.85rem clamp(0.5rem, 1.75vw, 1.15rem) 1.75rem clamp(0.85rem, 2.25vw, 1.5rem);
     box-sizing: border-box;
 }
 
 #plotly-chart {
     width: 100% !important;
-    min-height: min(68vh, 780px);
+    min-height: min(72vh, 820px);
     border-radius: var(--catnoir-radius-md);
     /* visible so hover card + shadow are not clipped at rounded corners */
     overflow: visible;
@@ -1146,6 +1146,7 @@ table.dataTable thead td {
     }
 
     .plot-controls-dock {
+        flex: 1 1 auto;
         border-left: none;
         border-top: 1px solid var(--border-color);
     }

@@ -8,6 +8,22 @@ const footerPath = resolve(__dirname, 'site/src/partials/footer.html')
 
 export default defineConfig({
   root: 'site',
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+    strictPort: true,
+    hmr: {
+      host: '127.0.0.1',
+    },
+    watch: {
+      // Script-generated assets should not trigger reload/restart storms.
+      ignored: ['**/images/**', '**/*.py', '**/BH_Catalog.snapshot.json'],
+    },
+  },
+  preview: {
+    host: '127.0.0.1',
+    port: 4173,
+  },
   build: {
     outDir: '../dist',
     emptyOutDir: true,

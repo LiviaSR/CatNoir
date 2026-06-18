@@ -5,6 +5,7 @@
   "description": "CatNoir \u2026 A living catalogue of galactic black holes",
   "scripts": {
     "dev": "vite",
+    "dev:restart": "lsof -ti:5173 | xargs kill -9 2>/dev/null; sleep 0.5; vite",
     "build": "vite build",
     "preview": "vite preview"
   },

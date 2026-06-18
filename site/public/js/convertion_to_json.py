@@ -214,7 +214,7 @@ def build_field(mu, sigma_up, sigma_down, dist_type=None):
     }
 
 
-def row_to_entry(row, descrip_by_link=None):
+def row_to_entry(row):
     """Convert a single CSV row into a catalog JSON entry."""
     type_val = row["Type"]
     if pd.isna(type_val) or type_val == 0 or str(type_val).strip() == "0":
@@ -258,9 +258,9 @@ def generate():
     refs_from_csv = 0
     refs_fallback = 0
     for _, row in df.iterrows():
-        name = row["name"]
-        entry = row_to_entry(row, descrip_by_name.get(name, {}))
-        if name in simbad_by_name:
+        entry = row_to_entry(row)
+        name = entry["name"]
+        if not entry.get("simbad") and name in simbad_by_name:
             entry["simbad"] = simbad_by_name[name]
         if entry.get("hasReferences"):
             refs_from_csv += 1

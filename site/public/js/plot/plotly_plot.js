@@ -5,6 +5,26 @@ function buildAxisLabel(fieldKey) {
   return '$' + meta.symbol + '$';
 }
 
+function plotlyAxisTitle(fieldKey, standoff, fontSize) {
+  var title = {
+    text: buildAxisLabel(fieldKey),
+    standoff: standoff,
+  };
+  if (fontSize) {
+    title.font = { size: fontSize };
+  }
+  return title;
+}
+
+/** Extra left margin so the y-axis title clears log-scale tick labels. */
+function plotlyLayoutMargins(yIsLog, yField) {
+  var left = 108;
+  if (yIsLog) left += 14;
+  var meta = fieldMeta[yField];
+  if (meta && meta.unit) left += 10;
+  return { t: 36, r: 16, b: 52, l: left };
+}
+
 function buildHoverLabel(fieldKey) {
   var meta = fieldMeta[fieldKey];
   if (!meta) return fieldKey;
@@ -449,18 +469,24 @@ function getPlotlyLayout() {
   var logTickAttrsX = Object.assign({}, logTickAttrsCommon, {
     minorloglabels: 'small digits',
   });
-  var logTickAttrsY = Object.assign({}, logTickAttrsCommon, {
-    minorloglabels: 'complete',
-  });
 
-  // Eccentricity is in [0, 1). Log scale packs that interval into dense minor ticks
-  // (0.002, 0.003, …) — use a linear x-axis for e regardless of the “log–log” preset.
+  // Eccentricity is in [0, 1). On a log axis, 'complete' minor labels crowd the axis;
+  // hide them for e while keeping the user’s log/linear scale choice.
   var xIsEccentricity = plotlyState.x === 'e';
+  var yIsEccentricity = plotlyState.y === 'e';
   var xAxisType = xIsEccentricity ? 'linear' : plotlyState.scaleX;
+  var yAxisType = plotlyState.scaleY;
   var xIsLog = xAxisType === 'log';
-  var yIsLog = plotlyState.scaleY === 'log';
+  var yIsLog = yAxisType === 'log';
 
-  var linearEccentricityXAttrs = {
+  // e ∈ [0, 1): D2 (1–2–5–10) still crowds a log axis — use decade ticks only.
+  var logTickAttrsYForField = Object.assign({}, logTickAttrsCommon,
+    yIsEccentricity
+      ? { dtick: 'D1', minorloglabels: 'none', tickformat: '.2~g' }
+      : { minorloglabels: 'complete' }
+  );
+
+  var linearEccentricityAttrs = {
     tickformat: '.2f',
     dtick: 0.1,
     rangemode: 'tozero',
@@ -481,15 +507,19 @@ function getPlotlyLayout() {
 
   return {
     xaxis: Object.assign({}, axisBase, {
-      title: { text: buildAxisLabel(plotlyState.x) },
+      title: plotlyAxisTitle(plotlyState.x, 8),
       type: xAxisType,
+      automargin: true,
     },
       xIsLog ? logTickAttrsX : {},
-      xIsEccentricity ? linearEccentricityXAttrs : {}),
+      xIsEccentricity ? linearEccentricityAttrs : {}),
     yaxis: Object.assign({}, axisBase, {
-      title: { text: buildAxisLabel(plotlyState.y) },
-      type: plotlyState.scaleY,
-    }, yIsLog ? logTickAttrsY : {}),
+      title: plotlyAxisTitle(plotlyState.y, 32, 14),
+      type: yAxisType,
+      automargin: true,
+      ticklabelstandoff: 6,
+    }, yIsLog ? logTickAttrsYForField : {},
+      yIsEccentricity && !yIsLog ? linearEccentricityAttrs : {}),
     plot_bgcolor: bgColor,
     paper_bgcolor: paperColor,
     font: { color: fontColor, family: 'inherit' },
@@ -501,7 +531,7 @@ function getPlotlyLayout() {
       x: 0.5,
       font: { color: fontColor },
     },
-    margin: { t: 36, r: 12, b: 52, l: 58 },
+    margin: plotlyLayoutMargins(yIsLog, plotlyState.y),
     autosize: true,
     hovermode: 'closest',
     hoverdistance: 44,
@@ -570,16 +600,22 @@ function updatePlotlyPlot() {
   syncPlotlyScaleButtonUI();
 }
 
-function setPlotlyAxis(axis, value) {
-  plotlyState[axis] = value;
-  if (axis === 'x' && value === 'e' && plotlyState.scaleX === 'log') {
+function ensureLinearScaleForEccentricity() {
+  // e on the x-axis only spans [0, 1); log there is not meaningful — keep linear x.
+  if (plotlyState.x === 'e' && plotlyState.scaleX === 'log') {
     plotlyState.scaleX = 'linear';
   }
+}
+
+function setPlotlyAxis(axis, value) {
+  plotlyState[axis] = value;
+  ensureLinearScaleForEccentricity();
   updatePlotlyPlot();
 }
 
 function setPlotlyScale(scaleKey, value) {
   plotlyState[scaleKey] = value;
+  ensureLinearScaleForEccentricity();
   updatePlotlyPlot();
 }
 
