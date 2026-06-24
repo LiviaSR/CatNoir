@@ -113,12 +113,18 @@ h1, h2, h3, h4, h5 {
     color: var(--text-color) !important;
 }
 
-/* Navbar brand (left): wordmark only — same row as menu links */
+/* Navbar brand (left): logo mark + wordmark — same row as menu links */
 .site-nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    align-self: stretch;
+    height: var(--site-nav-height);
     color: var(--text-color) !important;
     text-decoration: none;
-    padding: 0.5rem 0.75rem 0.5rem 0;
+    padding: 0 0.75rem 0 0;
     margin-right: 0.5rem;
+    margin-bottom: 0;
     font-family: var(--catnoir-font-sans);
     font-weight: 700;
     font-size: clamp(1.15rem, 2vw, 1.35rem);
@@ -130,6 +136,18 @@ h1, h2, h3, h4, h5 {
 .site-nav__brand:focus-visible {
     color: var(--text-color) !important;
     opacity: 0.9;
+}
+
+/* Logo mark: full navbar height */
+.site-nav__logo {
+    height: 100%;
+    width: auto;
+    max-width: 7.5rem;
+    border-radius: 0 0 0 var(--catnoir-radius-md);
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0;
+    display: block;
 }
 
 /* Footer: full-width separator row with centered links and right-side logos */
@@ -202,11 +220,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .navbar {
+    --site-nav-height: 3.75rem;
     background-color: var(--primary-color) !important;
     border-radius: 0 0 var(--catnoir-radius-md) var(--catnoir-radius-md);
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    align-items: center;
+    min-height: var(--site-nav-height);
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: stretch;
     box-shadow: var(--catnoir-shadow-sm);
     border: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent);
     border-top: none;
@@ -218,6 +238,7 @@ h1, h2, h3, h4, h5 {
     align-items: center;
     justify-content: space-between;
     row-gap: 0.5rem;
+    min-height: var(--site-nav-height);
 }
 
 .site-nav .navbar-collapse {
@@ -1803,4 +1824,6 @@ figcaption{
 .media-carousel .carousel-item > img {
     width: 100%;
     max-height: 500px;
-    object
+    object-fit: cover;
+    object-position: center;
+}
