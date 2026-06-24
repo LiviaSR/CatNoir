@@ -562,6 +562,10 @@ a:hover {
     max-width: 65ch;
 }
 
+.about-section p {
+    max-width: none;
+}
+
 /* inside a flex row card (contact page), let the text fill remaining space naturally */
 .flex-row > .text-section {
     flex: 1 1 0;
@@ -1799,6 +1803,4 @@ figcaption{
 .media-carousel .carousel-item > img {
     width: 100%;
     max-height: 500px;
-    object-fit: cover;
-    object-position: center;
-}
+    object
