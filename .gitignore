@@ -12,3 +12,5 @@ The_BH_Mass_Distribution.pdf
 node_modules/
 dist/
 .vite/
+deploy.sh
+deploy.env.example
