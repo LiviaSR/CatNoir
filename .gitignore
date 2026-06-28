@@ -3,6 +3,9 @@ site/refs.bib
 .DS_Store
 old_scripts.txt
 push.sh
+deploy.env
+.deploy-staging/
+public/
 The_BH_Mass_Distribution.pdf
 
 # Vite / Node
