@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev:restart": "lsof -ti:5173 | xargs kill -9 2>/dev/null; sleep 0.5; vite",
-    "build": "vite build",
+    "build": "vite build && npm run assemble",
+    "assemble": "cp -R site/css dist/css && cp -R site/images dist/images && find dist/js -type f \\( -name '*.py' -o -name '*.tex' \\) -delete 2>/dev/null || true",
     "preview": "vite preview"
   },
   "devDependencies": {

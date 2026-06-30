@@ -78,22 +78,15 @@ assemble_release() {
     npm install
   fi
 
-  echo "→ Building site (vite)…"
+  echo "→ Building site (vite + assemble)…"
   npm run build
 
   echo "→ Assembling release in staging…"
   rm -rf "$STAGING"
   mkdir -p "$STAGING"
 
-  # Vite output
+  # Complete build output (dist already includes css/ and images/)
   cp -R dist/. "$STAGING/"
-
-  # Not processed by Vite — required at runtime
-  cp -R site/css "$STAGING/css"
-  cp -R site/images "$STAGING/images"
-
-  # Dev/data-pipeline scripts are not needed on the web server
-  find "$STAGING/js" -type f \( -name '*.py' -o -name '*.tex' \) -delete 2>/dev/null || true
   find "$STAGING" -name '.DS_Store' -delete 2>/dev/null || true
 
   echo "→ Publishing to $dest"

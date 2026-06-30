@@ -1,0 +1,5 @@
+# Render static site — https://render.com/docs/static-sites
+staticSites:
+  - name: catnoir
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
